@@ -29,10 +29,12 @@ print("TEXT SHAPE = ", text.shape)
 
 ##  CREATE CSV FROM TXT FILE, WITH 3 COLUMNS : MASKED SENTENCE, TARGET WORD, LEXICO-SEMANTIC RELATION
 #csv = pd.read_csv("input_masked_training.csv", encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
-csv_file = open('input_training_mask.csv', 'w')
-writer = csv.writer(csv_file)
 
-for i in range(2):  #text.shape[0]
+masked_sentences = []
+masked_targets = []
+lexico_semantic_relations = []
+
+for i in range(5):  #text.shape[0]
   if text[i] == "\n":
     break
 
@@ -51,15 +53,19 @@ for i in range(2):  #text.shape[0]
   #print("SPLITTED SENTENCE AFTER STRIP SHAPE = ", splitted_sentence.shape)
   #print("SPLITTED SENTENCE = ", splitted_sentence)
   #print("SPLITTED SENTENCE SHAPE = ", splitted_sentence.shape)
-  d = {"masked_sentence" : [splitted_sentence[0]],
-       "masked_target" : [splitted_sentence[1]],
-       "lexico_semantic_relation" : [splitted_sentence[2]]}
-  print("D EQUAL TO = ", d)
+  masked_sentences.append(splitted_sentence[0])
+  masked_targets.append(splitted_sentence[1])
+  lexico_semantic_relations.append(splitted_sentence[2])
 
-  masked_sentence_dict = {"masked_sentence" : splitted_sentence[0]}
-  masked_target_dict = {"masked target" : splitted_sentence[1]}
-  lexico_semantic_relation_dict = {"lexico_semantic_relation" : splitted_sentence[2]}
-  writer.writerow([masked_sentence_dict, masked_target_dict, lexico_semantic_relation_dict])
+  #d = {"masked_sentence" : [splitted_sentence[0]],
+  #     "masked_target" : [splitted_sentence[1]],
+  #     "lexico_semantic_relation" : [splitted_sentence[2]]}
+  #print("D EQUAL TO = ", d)
+
+  #masked_sentence_dict = {"masked_sentence" : splitted_sentence[0]}
+  #masked_target_dict = {"masked target" : splitted_sentence[1]}
+  #lexico_semantic_relation_dict = {"lexico_semantic_relation" : splitted_sentence[2]}
+
 
   #masked_sentence_df = pd.DataFrame(masked_sentence_dict, index=[0, 1, 2])
   #masked_target_df = pd.DataFrame(masked_target_dict, index=[0, 1, 2])
@@ -68,7 +74,25 @@ for i in range(2):  #text.shape[0]
   #csv.append(masked_sentence_df)
   #csv.append(masked_target_df)
   #csv.append(lexico_semantic_relation_df)
-csv_file.close()
+masked_sentences_df = pd.DataFrame(masked_sentences, columns=['masked_sentence'])
+masked_targets_df = pd.DataFrame(masked_targets, columns=['masked_target'])
+lexico_semantic_relations_df = pd.DataFrame(lexico_semantic_relations, columns=['lexico_semantic_relation'])
+
+print("MASKED SENTENCE DF = ", masked_sentences_df)
+print("MASKED TARGETS DF = ", masked_targets_df)
+print("LEXICO SEMANTIC RELATION = ", lexico_semantic_relations_df)
+
+#print("CSV FILE = ", csv_file_df)
+#print("CSV FILE SHAPE = ", csv_file_df.shape)
+#print("CSV FILE ELEMENT 0 = ", csv_file_df.loc[0])
+#print("CSV FILE ELEMENT 1 = ", csv_file_df.loc[1])
+#print("CSV FILE ELEMENT 2 = ", csv_file_df.loc[2])
+
+######
+
+#  HERE ADD CONVERTION FROM DATARFAME TO CSV (FOR TRAINING / TESTING  ## )
+
+########
 
 test = pd.read_csv('input_training_mask.csv', encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
 print("TEST TEST TEST = ", test)
