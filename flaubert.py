@@ -20,15 +20,18 @@ file = open(filename, 'rt')
 text = file.readlines()
 file.close()
 
-csv_file = pd. DataFrame(list())
-csv_file.to_csv('input_masked_training.csv')
+#csv_file = pd.DataFrame(list())
+#csv_file.to_csv('input_masked_training.csv')
 
 text = np.array(text)
 print("TEXT SHAPE = ", text.shape)
 #print("TEXT = \n ", text)
 
 ##  CREATE CSV FROM TXT FILE, WITH 3 COLUMNS : MASKED SENTENCE, TARGET WORD, LEXICO-SEMANTIC RELATION
-csv = pd.read_csv("input_masked_training.csv", encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
+#csv = pd.read_csv("input_masked_training.csv", encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
+csv_file = open('input_training_mask.csv', 'w')
+writer = csv.writer(csv_file)
+
 for i in range(2):  #text.shape[0]
   if text[i] == "\n":
     break
@@ -48,16 +51,32 @@ for i in range(2):  #text.shape[0]
   #print("SPLITTED SENTENCE AFTER STRIP SHAPE = ", splitted_sentence.shape)
   #print("SPLITTED SENTENCE = ", splitted_sentence)
   #print("SPLITTED SENTENCE SHAPE = ", splitted_sentence.shape)
-  masked_sentence_df = pd.DataFrame(splitted_sentence[0], columns='masked_sentence')
-  masked_target_df = pd.DataFrame(splitted_sentence[1], columns='masked_target')
-  lexico_semantic_relation_df = pd.DataFrame(splitted_sentence[2], columns='lexico_semantic_relation')
+  d = {"masked_sentence" : [splitted_sentence[0]],
+       "masked_target" : [splitted_sentence[1]],
+       "lexico_semantic_relation" : [splitted_sentence[2]]}
+  print("D EQUAL TO = ", d)
 
-  csv.append(masked_sentence_df, ignore_index=True)
-  csv.append(masked_target_df, ignore_index=True)
-  csv.append(lexico_semantic_relation_df, ignore_index=True)
+  masked_sentence_dict = {"masked_sentence" : splitted_sentence[0]}
+  masked_target_dict = {"masked target" : splitted_sentence[1]}
+  lexico_semantic_relation_dict = {"lexico_semantic_relation" : splitted_sentence[2]}
+  writer.writerow([masked_sentence_dict, masked_target_dict, lexico_semantic_relation_dict])
 
+  #masked_sentence_df = pd.DataFrame(masked_sentence_dict, index=[0, 1, 2])
+  #masked_target_df = pd.DataFrame(masked_target_dict, index=[0, 1, 2])
+  #lexico_semantic_relation_df = pd.DataFrame(lexico_semantic_relation_dict, index=[0, 1, 2])
 
-print("CSV = \n ", csv)
+  #csv.append(masked_sentence_df)
+  #csv.append(masked_target_df)
+  #csv.append(lexico_semantic_relation_df)
+csv_file.close()
+
+test = pd.read_csv('input_training_mask.csv', encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
+print("TEST TEST TEST = ", test)
+print("TEST TEST TEST LENGTH = ", len(test))
+
+print("TEST = ", test.masked_sentence)
+print("TEST LENGTH = ", len(test.masked_sentence))
+#print("CSV = \n ", csv)
 ### ADD JeuxDeMots DATA for FINETUNING
 
 """
