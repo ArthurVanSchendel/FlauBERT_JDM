@@ -20,6 +20,9 @@ file = open(filename, 'rt')
 text = file.readlines()
 file.close()
 
+csv_file = pd. DataFrame(list())
+csv_file.to_csv('input_masked_training.csv')
+
 text = np.array(text)
 print("TEXT SHAPE = ", text.shape)
 #print("TEXT = \n ", text)
