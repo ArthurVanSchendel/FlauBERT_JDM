@@ -1,0 +1,147 @@
+une sorte d'<mask> informatique pourrait administrer   ;   administrateur   ;   ::>13:15388220>29:5333
+une sorte d'administrateur <mask> pourrait administrer   ;   informatique   ;   ::>13:15388220>29:5333
+une sorte d'administrateur informatique pourrait <mask>   ;   administrer   ;   ::>13:15388220>29:5333
+
+une sorte d'<mask> informatique va administrer   ;   administrateur   ;   ::>13:15388220>29:5333
+une sorte d'administrateur <mask> va administrer   ;   informatique   ;   ::>13:15388220>29:5333
+une sorte d'administrateur informatique va <mask>   ;   administrer   ;   ::>13:15388220>29:5333
+
+l'<mask> va pincer   ;   oie   ;   ::>13:79073>29:133793
+l'oie va <mask>   ;   pincer   ;   ::>13:79073>29:133793
+
+l'<mask> pourrait pincer   ;   oie   ;   ::>13:79073>29:133793
+l'oie pourrait <mask>   ;   pincer   ;   ::>13:79073>29:133793
+
+une <mask> peut travailler dans un EHPAD   ;   aide-soignante   ;   ::>66:153905>24:16108911
+une aide-soignante peut <mask> dans un EHPAD   ;   travailler   ;   ::>66:153905>24:16108911
+une aide-soignante peut travailler dans un <mask>   ;   EHPAD   ;   ::>66:153905>24:16108911
+
+la <mask> va griffer   ;   femme   ;   ::>66:61490>24:87221
+la femme va <mask>   ;   griffer   ;   ::>66:61490>24:87221
+
+la <mask> pourrait griffer   ;   femme   ;   ::>66:61490>24:87221
+la femme pourrait <mask>   ;   griffer   ;   ::>66:61490>24:87221
+
+une sorte de <mask> pourrait vendre   ;   Gazprom   ;   ::>66:152609>24:54438
+une sorte de Gazprom pourrait <mask>   ;   vendre   ;   ::>66:152609>24:54438
+
+le <mask> va étudier un virus   ;   virologue   ;   ::>14:232842>29:127257
+le virologue va <mask> un virus   ;   étudier   ;   ::>14:232842>29:127257
+le virologue va étudier un <mask>   ;   virus   ;   ::>14:232842>29:127257
+
+un <mask> pourrait étudier un virus   ;   virologue   ;   ::>14:232842>29:127257
+un virologue pourrait <mask> un virus   ;   étudier   ;   ::>14:232842>29:127257
+un virologue pourrait étudier un <mask>   ;   virus   ;   ::>14:232842>29:127257
+
+un <mask> pourrait utiliser une rivelaine dans une galerie de mine   ;   mineur   ;   ::>66:16598761>15:355779
+un mineur pourrait <mask> une rivelaine dans une galerie de mine   ;   utiliser   ;   ::>66:16598761>15:355779
+un mineur pourrait utiliser une <mask> dans une galerie de mine   ;   rivelaine   ;   ::>66:16598761>15:355779
+un mineur pourrait utiliser une rivelaine dans une <mask> de mine   ;   galerie   ;   ::>66:16598761>15:355779
+un mineur pourrait utiliser une rivelaine dans une galerie de <mask>   ;   mine   ;   ::>66:16598761>15:355779
+
+le <mask> pourrait utiliser la rivelaine dans la galerie de mine   ;   mineur   ;   ::>66:16598761>15:355779
+le mineur pourrait <mask> la rivelaine dans la galerie de mine   ;   utiliser   ;   ::>66:16598761>15:355779
+le mineur pourrait utiliser la <mask> dans la galerie de mine   ;   rivelaine   ;   ::>66:16598761>15:355779
+le mineur pourrait utiliser la rivelaine dans la <mask> de mine   ;   galerie   ;   ::>66:16598761>15:355779
+le mineur pourrait utiliser la rivelaine dans la galerie de <mask>   ;   mine   ;   ::>66:16598761>15:355779
+
+le <mask> pourrait se jeter dans le vide   ;   suicidaire   ;   ::>66:64005>24:14907052
+le suicidaire pourrait se <mask> dans le vide   ;   jeter   ;   ::>66:64005>24:14907052
+le suicidaire pourrait se jeter dans le <mask>   ;   vide   ;   ::>66:64005>24:14907052
+
+le <mask> pouvait se jeter dans le vide   ;   suicidaire   ;   ::>66:64005>24:14907052
+le suicidaire pouvait se <mask> dans le vide   ;   jeter   ;   ::>66:64005>24:14907052
+le suicidaire pouvait se jeter dans le <mask>   ;   vide   ;   ::>66:64005>24:14907052
+
+une <mask> va boire de l'alcool   ;   personne   ;   ::>66:116477>24:156497
+une personne va <mask> de l'alcool   ;   boire   ;   ::>66:116477>24:156497
+une personne va boire de l'<mask>   ;   alcool   ;   ::>66:116477>24:156497
+
+une <mask> pourrait boire de l'alcool   ;   personne   ;   ::>66:116477>24:156497
+une personne pourrait <mask> de l'alcool   ;   boire   ;   ::>66:116477>24:156497
+une personne pourrait boire de l'<mask>   ;   alcool   ;   ::>66:116477>24:156497
+
+une <mask> peut dominer le marché   ;   corporation   ;   ::>14:146274>29:108977
+une corporation peut <mask> le marché   ;   dominer   ;   ::>14:146274>29:108977
+une corporation peut dominer le <mask>   ;   marché   ;   ::>14:146274>29:108977
+
+la <mask> va dominer son marché   ;   corporation   ;   ::>14:146274>29:108977
+la corporation va <mask> son marché   ;   dominer   ;   ::>14:146274>29:108977
+la corporation va dominer son <mask>   ;   marché   ;   ::>14:146274>29:108977
+
+une <mask> pourrait incarcérer son délinquant   ;   personne   ;   ::>66:87781>26:116306
+une personne pourrait <mask> son délinquant   ;   incarcérer   ;   ::>66:87781>26:116306
+une personne pourrait incarcérer son <mask>   ;   délinquant   ;   ::>66:87781>26:116306
+
+le <mask> pouvait se faire incarcérer   ;   délinquant   ;   ::>66:87781>26:116306
+le délinquant pouvait se <mask> incarcérer   ;   faire   ;   ::>66:87781>26:116306
+le délinquant pouvait se faire <mask>   ;   incarcérer   ;   ::>66:87781>26:116306
+
+le <mask> de films pourrait réaliser dans le studio de cinéma   ;   réalisateur   ;   ::>31:252586>29:4528
+le réalisateur de <mask> pourrait réaliser dans le studio de cinéma   ;   films   ;   ::>31:252586>29:4528
+le réalisateur de films pourrait <mask> dans le studio de cinéma   ;   réaliser   ;   ::>31:252586>29:4528
+le réalisateur de films pourrait réaliser dans le <mask> de cinéma   ;   studio   ;   ::>31:252586>29:4528
+le réalisateur de films pourrait réaliser dans le studio de <mask>   ;   cinéma   ;   ::>31:252586>29:4528
+
+un <mask> de films pourrait réaliser dans un studio de cinéma   ;   réalisateur   ;   ::>31:252586>29:4528
+un réalisateur de <mask> pourrait réaliser dans un studio de cinéma   ;   films   ;   ::>31:252586>29:4528
+un réalisateur de films pourrait <mask> dans un studio de cinéma   ;   réaliser   ;   ::>31:252586>29:4528
+un réalisateur de films pourrait réaliser dans un <mask> de cinéma   ;   studio   ;   ::>31:252586>29:4528
+un réalisateur de films pourrait réaliser dans un studio de <mask>   ;   cinéma   ;   ::>31:252586>29:4528
+
+la <mask> pouvait perdre son portable   ;   personne   ;   ::>66:116477>24:16998400
+la personne pouvait <mask> son portable   ;   perdre   ;   ::>66:116477>24:16998400
+la personne pouvait perdre son <mask>   ;   portable   ;   ::>66:116477>24:16998400
+
+une <mask> pourrait perdre un portable   ;   personne   ;   ::>66:116477>24:16998400
+une personne pourrait <mask> un portable   ;   perdre   ;   ::>66:116477>24:16998400
+une personne pourrait perdre un <mask>   ;   portable   ;   ::>66:116477>24:16998400
+
+la <mask> pourrait se fixer   ;   streptomycine   ;   ::>13:19853>29:71583
+la streptomycine pourrait se <mask>   ;   fixer   ;   ::>13:19853>29:71583
+
+une <mask> va vendre des gâteaux   ;   pâtisserie   ;   ::>66:25966>24:14464680
+une pâtisserie va <mask> des gâteaux   ;   vendre   ;   ::>66:25966>24:14464680
+une pâtisserie va vendre des <mask>   ;   gâteaux   ;   ::>66:25966>24:14464680
+
+une <mask> pourrait acheter son disque dans un disquaire   ;   personne   ;   ::>66:14537351>15:67637
+une personne pourrait <mask> son disque dans un disquaire   ;   acheter   ;   ::>66:14537351>15:67637
+une personne pourrait acheter son <mask> dans un disquaire   ;   disque   ;   ::>66:14537351>15:67637
+une personne pourrait acheter son disque dans un <mask>   ;   disquaire   ;   ::>66:14537351>15:67637
+
+la <mask> pourrait acheter un disque dans le disquaire   ;   personne   ;   ::>66:14537351>15:67637
+la personne pourrait <mask> un disque dans le disquaire   ;   acheter   ;   ::>66:14537351>15:67637
+la personne pourrait acheter un <mask> dans le disquaire   ;   disque   ;   ::>66:14537351>15:67637
+la personne pourrait acheter un disque dans le <mask>   ;   disquaire   ;   ::>66:14537351>15:67637
+
+une <mask> pouvait faire des exercices   ;   personne   ;   ::>66:116477>24:11147043
+une personne pouvait <mask> des exercices   ;   faire   ;   ::>66:116477>24:11147043
+une personne pouvait faire des <mask>   ;   exercices   ;   ::>66:116477>24:11147043
+
+la <mask> pouvait faire des exercices   ;   personne   ;   ::>66:116477>24:11147043
+la personne pouvait <mask> des exercices   ;   faire   ;   ::>66:116477>24:11147043
+la personne pouvait faire des <mask>   ;   exercices   ;   ::>66:116477>24:11147043
+
+un <mask> va être regardé   ;   tableau   ;   ::>66:75003>26:105814
+un tableau va <mask> regardé   ;   être   ;   ::>66:75003>26:105814
+un tableau va être <mask>   ;   regardé   ;   ::>66:75003>26:105814
+
+le <mask> pouvait être regardé   ;   tableau   ;   ::>66:75003>26:105814
+le tableau pouvait <mask> regardé   ;   être   ;   ::>66:75003>26:105814
+le tableau pouvait être <mask>   ;   regardé   ;   ::>66:75003>26:105814
+
+une <mask> pouvait tomber dans le trou   ;   personne   ;   ::>66:116477>24:16590904
+une personne pouvait <mask> dans le trou   ;   tomber   ;   ::>66:116477>24:16590904
+une personne pouvait tomber dans le <mask>   ;   trou   ;   ::>66:116477>24:16590904
+
+une <mask> pourrait tomber dans le trou   ;   personne   ;   ::>66:116477>24:16590904
+une personne pourrait <mask> dans le trou   ;   tomber   ;   ::>66:116477>24:16590904
+une personne pourrait tomber dans le <mask>   ;   trou   ;   ::>66:116477>24:16590904
+
+un <mask> pourrait percer un coffre   ;   cambrioleur   ;   ::>66:131552>24:14434164
+un cambrioleur pourrait <mask> un coffre   ;   percer   ;   ::>66:131552>24:14434164
+un cambrioleur pourrait percer un <mask>   ;   coffre   ;   ::>66:131552>24:14434164
+
+un <mask> peut percer un coffre   ;   cambrioleur   ;   ::>66:131552>24:14434164
+un cambrioleur peut <mask> un coffre   ;   percer   ;   ::>66:131552>24:14434164
+un cambrioleur peut percer un <mask>   ;   coffre   ;   ::>66:131552>24:14434164
