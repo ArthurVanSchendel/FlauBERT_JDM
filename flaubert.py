@@ -54,27 +54,11 @@ csv_df['masked_sentence'] = masked_sentences
 csv_df['masked_target'] = masked_targets
 csv_df['lexico_semantic_relation'] = lexico_semantic_relations
 print("CSV = ", csv_df)
-######
-
-#  HERE ADD CONVERTION FROM DATARFAME TO CSV (FOR TRAINING / TESTING  ## )
-
-#csv = csv_df.to_csv("input_mask.csv")
-
-#print("REAL CSVVVV = ", csv)
-
-########
-
 ### ADD JeuxDeMots DATA for FINETUNING
 
 """
 JDM DATA: (extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=4 )
 """
-
-#jdm_masked_data = pd.read_csv('input_masked.csv', encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
-
-#masked_sentences = jdm_masked_data.masked_sentence.to_list()
-#masked_targets = jdm_masked_data.masked_target.to_list()
-
 
 # Choose among ['flaubert/flaubert_small_cased', 'flaubert/flaubert_base_uncased',
 #               'flaubert/flaubert_base_cased', 'flaubert/flaubert_large_cased']
@@ -85,6 +69,13 @@ print("MODEL NAME = ", modelname)
 
 tokenizer = AutoTokenizer.from_pretrained(modelname)
 model = AutoModelForMaskedLM.from_pretrained(modelname)
+
+top_1_token = []
+top_2_token = []
+top_3_token = []
+top_4_token = []
+top_5_token = []
+
 
 for i in range(csv_df.shape[0]):
   csv_df.loc[i][0] = csv_df.loc[i][0].replace("<mask>", f"{tokenizer.mask_token}")
@@ -101,10 +92,29 @@ for i in range(csv_df.shape[0]):
   token_logits = model(**inputs).logits
   mask_token_logits = token_logits[0, mask_token_index, :]
   top_5_tokens = torch.topk(mask_token_logits, 5, dim=1).indices[0].tolist()
-
+  k = 0
   for token in top_5_tokens:
-      print(sequence.replace(tokenizer.mask_token, tokenizer.decode([token])))
+    print(sequence.replace(tokenizer.mask_token, tokenizer.decode([token])))
+    if k == 0:
+      top_1_token.append(tokenizer.decode([token]))
+    elif k == 1 :
+      top_2_token.append(tokenizer.decode([token]))
+    elif k == 2:
+      top_3_token.append(tokenizer.decode([token]))
+    elif k == 3:
+      top_4_token.append(tokenizer.decode([token]))
+    elif k == 4:
+      top_5_token.append(tokenizer.decode([token]))
+    else:
+      print("error, you should not be here, token = ", token, " : ", tokenizer.decode([token]))
 
-
+    k+=1
+top_tokens = [top_1_token, top_2_token, top_3_token, top_4_token, top_5_token]
+i=1
+for top_i_token in top_tokens:
+  csv_df[f'mask_pred_{i}'] = top_i_token
+  i+=1
+print("CSV DATAFRAME AFTER TOP 5 TOKEN PREDS = ", csv_df)
+csv_df.to_csv('results_flaubert_jdm.csv', encoding='utf-8-sig')
 #classifier = pipeline("fill-mask", model=modelname, tokenizer=tokenizer, topk=10)
 #print(classifier(f"La capitale de la France est {tokenizer.mask_token}."))
