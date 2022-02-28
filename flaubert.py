@@ -88,8 +88,9 @@ model = AutoModelForMaskedLM.from_pretrained(modelname)
 
 for i in range(csv_df.shape[0]):
   csv_df.loc[i][0] = csv_df.loc[i][0].replace("<mask>", f"{tokenizer.mask_token}")
-  print("\n JDM MASKED DATA LOC [i] [0] = ", csv_df.loc[i][0])
+  print("\n JDM MASKED SENTENCE = ", csv_df.loc[i][0])
   print("\n JDM MASKED TARGET = ", csv_df.loc[i][1], "\n ")
+  #print("\n JDM LEXICO-SEMANTIC RELATION = ", csv_df.loc[i][2])
 
   sequence = (
       csv_df.loc[i][0]
