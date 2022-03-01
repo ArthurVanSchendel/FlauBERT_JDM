@@ -9,6 +9,7 @@ from transformers import XLMTokenizer, XLMWithLMHeadModel, pipeline
 from transformers import FlaubertModel, FlaubertTokenizer
 from transformers import AutoModelForMaskedLM, AutoTokenizer
 from transformers import DataCollatorForLanguageModeling
+from transformers import Trainer, TrainingArguments
 
 from datasets import load_dataset
 
