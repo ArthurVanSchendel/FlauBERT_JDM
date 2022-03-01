@@ -12,6 +12,11 @@ from transformers import DataCollatorForLanguageModeling
 
 from datasets import load_dataset
 
+
+def tokenize_function(examples):
+    return tokenizer(examples["text"])
+
+
 if torch.cuda.is_available():
     print("GPU is available.")
     device = torch.cuda.current_device()
@@ -121,11 +126,8 @@ for top_i_token in top_tokens:
 
 print("CSV DATAFRAME AFTER TOP 5 TOKEN PREDS = ", csv_df)
 csv_df.to_csv('results_flaubert_jdm.csv', encoding='utf-8-sig')
-#classifier = pipeline("fill-mask", model=modelname, tokenizer=tokenizer, topk=10)
-#print(classifier(f"La capitale de la France est {tokenizer.mask_token}."))
 
 ####  CREATE A TRAIN SET AND A VALIDATION SET/ input_raw_tr.txt AND input_raw_valid.txt
-
 ## THE SETS SHOULD NOT BE MASKED YET, IT WILL BE HANDLED WITHIN BERT (SEE BELOW)
 
 ## LOAD THEM HERE ###
