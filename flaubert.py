@@ -3,10 +3,14 @@ import transformers
 import numpy as np
 import pandas as pd
 import csv
+import math
 
 from transformers import XLMTokenizer, XLMWithLMHeadModel, pipeline
 from transformers import FlaubertModel, FlaubertTokenizer
 from transformers import AutoModelForMaskedLM, AutoTokenizer
+from transformers import DataCollatorForLanguageModeling
+
+from datasets import load_dataset
 
 if torch.cuda.is_available():
     print("GPU is available.")
@@ -114,7 +118,54 @@ i=1
 for top_i_token in top_tokens:
   csv_df[f'mask_pred_{i}'] = top_i_token
   i+=1
+
 print("CSV DATAFRAME AFTER TOP 5 TOKEN PREDS = ", csv_df)
 csv_df.to_csv('results_flaubert_jdm.csv', encoding='utf-8-sig')
 #classifier = pipeline("fill-mask", model=modelname, tokenizer=tokenizer, topk=10)
 #print(classifier(f"La capitale de la France est {tokenizer.mask_token}."))
+
+####  CREATE A TRAIN SET AND A VALIDATION SET/ input_raw_tr.txt AND input_raw_valid.txt
+
+## THE SETS SHOULD NOT BE MASKED YET, IT WILL BE HANDLED WITHIN BERT (SEE BELOW)
+
+## LOAD THEM HERE ###
+datasets = load_dataset("text", data_files={"train": input_raw_tr.txt, "validation": input_raw_valid.txt})
+#####################
+datasets["train"][10]
+model_checkpoint = "flaubert/flaubert_base_cased"
+
+tokenizer_2 = AutoTokenizer.from_pretrained(model_checkpoint, use_fast=True)
+tokenized_datasets = datasets.map(tokenize_function, batched=True, num_proc=4, remove_columns=["text"])
+
+lm_datasets = tokenized_datasets.map(
+    group_texts,
+    batched=True,
+    batch_size=1000,
+    num_proc=4,
+)
+
+model_2 = AutoModelForMaskedLM.from_pretrained(model_checkpoint)
+
+model_name = model_checkpoint.split("/")[-1]
+
+training_args = TrainingArguments(
+    f"{model_name}-finetuned-JDM_text",
+    evaluation_strategy = "epoch",
+    learning_rate=6e-4,
+    weight_decay=0.01,
+)
+
+data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer_2, mlm_probability=0.15)  ###  15% of sentence is masked
+
+trainer = Trainer(
+    model=model_2,
+    args=training_args,
+    train_dataset=lm_datasets["train"],
+    eval_dataset=lm_datasets["validation"],
+    data_collator=data_collator,
+)
+####### TRAIN ###########
+trainer.train()
+####### EVAL ############
+eval_results = trainer.evaluate()
+print(f"Perplexity: {math.exp(eval_results['eval_loss']):.2f}")
