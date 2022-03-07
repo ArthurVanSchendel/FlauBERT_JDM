@@ -1,18 +1,48 @@
+from posixpath import join
 import torch
 import transformers
 import numpy as np
 import pandas as pd
 import csv
 import math
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+
 
 from transformers import XLMTokenizer, XLMWithLMHeadModel, pipeline
 from transformers import FlaubertModel, FlaubertTokenizer
+from transformers import CamembertModel, CamembertTokenizer
 from transformers import AutoModelForMaskedLM, AutoTokenizer
 from transformers import DataCollatorForLanguageModeling
 from transformers import Trainer, TrainingArguments
 
 from datasets import load_dataset
 
+
+if torch.cuda.is_available():
+    print("GPU is available.")
+    device = torch.cuda.current_device()
+else:
+    print("Will work on CPU.")
+
+def tokenize_function(examples):
+    return tokenizer(examples["text"])
+
+block_size = 128
+def group_texts(examples):
+    # Concatenate all texts.
+    concatenated_examples = {k: sum(examples[k], []) for k in examples.keys()}
+    total_length = len(concatenated_examples[list(examples.keys())[0]])
+    # We drop the small remainder, we could add padding if the model supported it instead of this drop, you can
+        # customize this part to your needs.
+    total_length = (total_length // block_size) * block_size
+    # Split by chunks of max_len.
+    result = {
+        k: [t[i : i + block_size] for i in range(0, total_length, block_size)]
+        for k, t in concatenated_examples.items()
+    }
+    result["labels"] = result["input_ids"].copy()
+    return result
 
 def raw_txt_to_txt(filename, data_type, output_name):
   file = open(filename, 'rt')
@@ -32,172 +62,144 @@ def raw_txt_to_txt(filename, data_type, output_name):
     splitted_text[0] = splitted_text[0] + '.'
     aggregates.append(splitted_text[0])
   txt_data['aggregates'] = aggregates
-  return txt_data
-
-def raw_txt_to_csv(filename, data_type, output_name):
-  file = open(filename, 'rt')
-  text = file.readlines()
-  file.close()
-  text = np.array(text)
-  print("TEXT SHAPE = ", text.shape)
-
-  #csv_data = pd.DataFrame(columns=[f'{data_type}', 'lexico_semantic_relation'])
-  csv_data = pd.DataFrame(columns=['aggregates', 'lexico_semantic_relation'])
-  aggregates = []
-  lexico_semantic_relations = []
-
-  for i in range(text.shape[0]):
-    if text[i] == '\n':
-      continue
-    splitted_txt = text[i].split(";")
-    splitted_txt = np.array(splitted_txt)
-    print("splitted text 0 = ", splitted_txt[0])
-    print("splitted text 1 = ", splitted_txt[1])
-    print("splitted text 2 = ", splitted_txt[2])
-    for j in range(2):
-      splitted_txt[j] = splitted_txt[j].strip()
-
-    splitted_txt[0] = splitted_txt[0] + '.'
-    aggregates.append(splitted_txt[0])
-    lexico_semantic_relations.append(splitted_txt[1])
-
-    #csv_data[f'{data_type}'] = aggregates
-  csv_data['aggregates'] = aggregates
-  #csv_data['masked_target'] = masked_targets
-  csv_data['lexico_semantic_relation'] = lexico_semantic_relations
-  print("CSV = ", csv_data)
-  csv = csv_data.to_csv(f"{output_name}.csv", encoding="utf-8-sig")
-
-  return csv
+  txt = txt_data.to_csv(f"{output_name}.txt", encoding="utf-8-sig")
+  return txt
 
 
-if torch.cuda.is_available():
-    print("GPU is available.")
-    device = torch.cuda.current_device()
-else:
-    print("Will work on CPU.")
+def extract_txt_from_html(url):
+    html = urlopen(url).read()
+    soup = BeautifulSoup(html, features="html.parser")
+    soup.prettify()
+    indexes = []
+    sentences = soup.find_all('sen')
+    lex_sem_relations = soup.find_all('ch')
+    print("soup = ", soup)
+    for j in range(len(sentences)):
+      indexes.append(j)
+    final_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
+    #final_txt = pd.DataFrame(columns=['sentences'])
+    for i in range(len(sentences)):
+      tmp_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
+      text = str(sentences[i]).replace('<sen>', '')
+      text = text.replace('</sen>', '.')
+      lex_sem = str(lex_sem_relations[i]).replace('<ch>', '')
+      lex_sem = lex_sem.replace('</ch>', '')
+      lex_sem = lex_sem.replace('&gt;', '>')
 
-filename = "input_raw.txt"
-file = open(filename, 'rt')
-text = file.readlines()
-file.close()
-
-
-text = np.array(text)
-print("TEXT SHAPE = ", text.shape)
-
-##  CREATE CSV FROM TXT FILE, WITH 3 COLUMNS : MASKED SENTENCE, TARGET WORD, LEXICO-SEMANTIC RELATION
-#csv = pd.read_csv("input_masked_training.csv", encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
-csv_df = pd.DataFrame(columns=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
-
-masked_sentences = []
-masked_targets = []
-lexico_semantic_relations = []
-
-for i in range(text.shape[0]):
-  if text[i] == '\n':
-    continue
-
-  splitted_sentence = text[i].split(";")
-  splitted_sentence = np.array(splitted_sentence)
-  print("splitted sentence 0 = ", splitted_sentence[0])
-  print("splitted sentence 1 = ", splitted_sentence[1])
-  print("splitted sentence 2 = ", splitted_sentence[2])
-
-  for j in range(2):
-    splitted_sentence[j] = splitted_sentence[j].strip()
+      final_txt['sentences'].loc[i] = text
+      final_txt['lexico_sem_relation'].loc[i] = lex_sem
+      print("TEXT SHAPE = ", np.array(text).shape)
+      print("Extract txt from html = ", final_txt)
+      print("LEN SENTENCES = ", len(sentences))
+    return final_txt, len(sentences)
 
 
-  splitted_sentence[0] = splitted_sentence[0] + '.'
-  masked_sentences.append(splitted_sentence[0])
-  masked_targets.append(splitted_sentence[1])
-  lexico_semantic_relations.append(splitted_sentence[2])
+def create_dataset(nb_calls, url, type_dataset):
+  indexes = []
+  final_dataset = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'])
+  #tmp_dataset = []
+  for i in range(nb_calls):
+    strip, len_data = extract_txt_from_html(url)
+    print("STRIP BEFORE APPEND TO DATASET = ", strip)
+    final_dataset = pd.concat([final_dataset, strip])
 
-csv_df['masked_sentence'] = masked_sentences
-csv_df['masked_target'] = masked_targets
-csv_df['lexico_semantic_relation'] = lexico_semantic_relations
-print("CSV = ", csv_df)
-### ADD JeuxDeMots DATA for FINETUNING
+  print('FINAL DATASET = ', final_dataset)
+  #print('TMP DATASET = ', tmp_dataset)
+  #print('TMP DATASET SHAPE = ', np.array(tmp_dataset).shape)
+  final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['sentences'])
+  return final_dataset
+## TRY : CamemBERT,
+modelname1 = 'flaubert/flaubert_large_cased'
+modelname2 = 'flaubert/flaubert_base_cased'
+modelname3 = 'flaubert/flaubert_base_uncased'
+modelname4 = 'flaubert/flaubert_small_cased'
 
-"""
-JDM DATA: (extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=2 )
-"""
+modelname5 = 'camembert-base'
 
-# Choose among ['flaubert/flaubert_small_cased', 'flaubert/flaubert_base_uncased',
-#               'flaubert/flaubert_base_cased', 'flaubert/flaubert_large_cased']
+#modelname6 = 'camembert/camembert-large'
+#modelname7 = 'camembert/camembert-base-ccnet'
+#modelname8 = 'camembert/camembert-base-wikipedia-4gb'
 
-modelname = 'flaubert/flaubert_large_cased' ### take small case only for debugging
+modelname9 = 'bert-base-multilingual-cased'
 
-print("MODEL NAME = ", modelname)
+models = [modelname1, modelname2, modelname3, modelname4, modelname5, modelname9]  ## remove model_name_6 = have to convert from slow to fast token
 
-tokenizer = AutoTokenizer.from_pretrained(modelname)
-model = AutoModelForMaskedLM.from_pretrained(modelname)
+for name_model in models:
+  print("MODEL NAME = ", name_model)
+  tokens = []
+  mods = []
+  if (name_model == 'camembert/camembert-large') or (name_model == 'camembert/camembert-base-ccnet') or (name_model=='camembert/camembert-base-wikipedia-4gb'):
+    tokenizer = CamembertTokenizer.from_pretrained(name_model)
+    model = CamembertModel.from_pretrained(name_model)
+  else:
+    tokenizer = AutoTokenizer.from_pretrained(name_model)
+    model = AutoModelForMaskedLM.from_pretrained(name_model)
+  tokens.append(tokenizer)
+  mods.append(model)
 
-top_1_token = []
-top_2_token = []
-top_3_token = []
-top_4_token = []
-top_5_token = []
-top_6_token = []
-top_7_token = []
-top_8_token = []
-top_9_token = []
-top_10_token = []
-
-txt_data = pd.DataFrame(columns=["samples"])
-for i in range(csv_df.shape[0]):
-  csv_df.loc[i][0] = csv_df.loc[i][0].replace("<mask>", f"{tokenizer.mask_token}")
-  print("\n JDM MASKED SENTENCE = ", csv_df.loc[i][0])
-  print("\n JDM MASKED TARGET = ", csv_df.loc[i][1], "\n ")
-  #print("\n JDM LEXICO-SEMANTIC RELATION = ", csv_df.loc[i][2])
-  #txt_data[samples] = csv_df.loc[i][0])
-  #txt_data.append(csv_df.loc[i][1])
-  sequence = (
-      csv_df.loc[i][0]
-  )
-
-  inputs = tokenizer(sequence, return_tensors="pt")
-  mask_token_index = torch.where(inputs["input_ids"] == tokenizer.mask_token_id)[1]
-  token_logits = model(**inputs).logits
-  mask_token_logits = token_logits[0, mask_token_index, :]
-  top_10_tokens = torch.topk(mask_token_logits, 10, dim=1).indices[0].tolist()
-  k = 0
-  for token in top_10_tokens:
-    print(sequence.replace(tokenizer.mask_token, tokenizer.decode([token])))
-    #txt_data.append(sequence.replace(tokenizer.mask_token, tokenizer.decode([token])))
-    if k == 0:
-      top_1_token.append(tokenizer.decode([token]))
-    elif k == 1 :
-      top_2_token.append(tokenizer.decode([token]))
-    elif k == 2:
-      top_3_token.append(tokenizer.decode([token]))
-    elif k == 3:
-      top_4_token.append(tokenizer.decode([token]))
-    elif k == 4:
-      top_5_token.append(tokenizer.decode([token]))
-    elif k == 5:
-      top_6_token.append(tokenizer.decode([token]))
-    elif k == 6:
-      top_7_token.append(tokenizer.decode([token]))
-    elif k == 7:
-      top_8_token.append(tokenizer.decode([token]))
-    elif k == 8:
-      top_9_token.append(tokenizer.decode([token]))
-    elif k == 9:
-      top_10_token.append(tokenizer.decode([token]))
-    else:
-      print("error, you should not be here, token = ", token, " : ", tokenizer.decode([token]))
-
-    k+=1
-top_tokens = [top_1_token, top_2_token, top_3_token, top_4_token, top_5_token, top_6_token, top_7_token, top_8_token, top_9_token, top_10_token]
-i=1
-for top_i_token in top_tokens:
-  csv_df[f'mask_pred_{i}'] = top_i_token
-  i+=1
+print("TOKENIZERS = ", tokens)
+print("MODELS = ", mods)
+#tokenizer1 = AutoTokenizer.from_pretrained(modelname1, use_fast=True)
+#model = AutoModelForMaskedLM.from_pretrained(modelname)
 
 
-print("CSV DATAFRAME AFTER TOP 5 TOKEN PREDS = ", csv_df)
-#numpy_array = csv_df.to_numpy()
-#np.savetxt("results_flauBERT_JDM.txt", numpy_array, fmt = "%s")
+######   DATASET PARAMETERS #######
 
-csv_df.to_csv('results_flaubert_jdm.csv', encoding='utf-8-sig')
+##  CHUNK = Nombre de chunk selectionné
+## ITER  = Nombre de variantes par chunk
+
+### TAILLE MAX DE DATASET = CHUNK * ITER
+
+
+url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=2"
+#### THIS LINK GENERATES 1300 LINES (SENTENCES)
+
+txt_train = create_dataset(2, url_data, "train")
+txt_valid = create_dataset(1, url_data, "valid")
+#txt_train = raw_txt_to_txt('input_raw_tr.txt', 'aggregates', 'aggregate_train')
+#txt_valid = raw_txt_to_txt('input_raw_valid.txt', 'aggregates', 'aggregate_valid')
+print("txt train = ", txt_train)
+print("LEN TXT TRAIN WITH CHUNK = 20, ITER = 2, NB CALLS = 2 : ", len(txt_train))
+print("txt train = ", txt_valid)
+print("LEN TXT VALID WITH CHUNK = 20, ITER = 2, NB CALLS = 1 : ", len(txt_valid))
+## LOAD DATASETs HERE ###
+datasets = load_dataset('text', data_files={'train': 'aggregate_train.txt', 'validation': 'aggregate_valid.txt'})
+tokenized_datasets = datasets.map(tokenize_function, batched=True, num_proc=4, remove_columns=['text'])
+
+lm_datasets = tokenized_datasets.map(
+    group_texts,
+    batched=True,
+    batch_size=1000,
+    num_proc=4,
+)
+
+print("DATASETS TRAIN = ", datasets['train'])
+print("DATASETS VALID = ", datasets['validation'])
+print("len dataset = ", np.array(datasets).shape)
+
+model_name = modelname.split("/")[-1]
+
+training_args = TrainingArguments(
+    f"{model_name}-finetuned-JDM_text",
+    evaluation_strategy = "epoch",
+    learning_rate=2e-5,
+    num_train_epochs=7,
+    logging_steps=1,
+    per_device_train_batch_size=8,
+    weight_decay=0.01,
+)
+
+data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm_probability=0.15)  ###  15% of sentence is masked
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=lm_datasets["train"],
+    eval_dataset=lm_datasets["validation"],
+    data_collator=data_collator,
+)
+####### TRAIN ###########
+trainer.train()
+####### EVAL ############
+eval_results = trainer.evaluate()
+print(f"Perplexity: {math.exp(eval_results['eval_loss']):.2f}")
