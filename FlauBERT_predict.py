@@ -16,11 +16,6 @@ from transformers import Trainer, TrainingArguments
 
 from datasets import load_dataset
 
-
-def tokenize_function(examples):
-    return tokenizer(examples["text"])
-
-
 if torch.cuda.is_available():
     print("GPU is available.")
     device = torch.cuda.current_device()
@@ -34,12 +29,13 @@ def extract_txt_from_html(url):
     indexes = []
     sentences = soup.find_all('sen')
     lex_sem_relations = soup.find_all('ch')
+    masks = soup.find_all('')
     for j in range(len(sentences)):
       indexes.append(j)
-    final_txt = pd.DataFrame(columns=['masked_sentences', 'lexico_sem_relation'], index=indexes)
+    final_txt = pd.DataFrame(columns=['masked_sentences', 'masked_target', 'lexico_sem_relation'], index=indexes)
     #final_txt = pd.DataFrame(columns=['sentences'])
     for i in range(len(sentences)):
-      tmp_txt = pd.DataFrame(columns=['masked_sentences', 'lexico_sem_relation'], index=indexes)
+      tmp_txt = pd.DataFrame(columns=['masked_sentences', 'masked_target', 'lexico_sem_relation'], index=indexes)
       text = str(sentences[i]).replace('<sen>', '')
       text = text.replace('</sen>', '.')
       lex_sem = str(lex_sem_relations[i]).replace('<ch>', '')
@@ -47,15 +43,16 @@ def extract_txt_from_html(url):
       lex_sem = lex_sem.replace('&gt;', '>')
 
       final_txt['masked_sentences'].loc[i] = text
+      final_txt['masked_target'].loc[i] = masks
       final_txt['lexico_sem_relation'].loc[i] = lex_sem
-    return final_txt, len(sentences)
+    return final_txt
 
 def create_dataset(nb_calls, url, type_dataset):
   indexes = []
   final_dataset = pd.DataFrame(columns=['masked_sentences', 'lexico_sem_relation'])
   #tmp_dataset = []
   for i in range(nb_calls):
-    strip, len_data = extract_txt_from_html(url)
+    strip = extract_txt_from_html(url)
     final_dataset = pd.concat([final_dataset, strip])
   final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['masked_sentences'])
   return final_dataset

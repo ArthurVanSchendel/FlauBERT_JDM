@@ -59,7 +59,7 @@ def extract_txt_from_html(url):
 
       final_txt['sentences'].loc[i] = text
       final_txt['lexico_sem_relation'].loc[i] = lex_sem
-    return final_txt, len(sentences)
+    return final_txt
 
 
 def create_dataset(nb_calls, url, type_dataset):
@@ -67,7 +67,7 @@ def create_dataset(nb_calls, url, type_dataset):
   final_dataset = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'])
   #tmp_dataset = []
   for i in range(nb_calls):
-    strip, len_data = extract_txt_from_html(url)
+    strip = extract_txt_from_html(url)
     final_dataset = pd.concat([final_dataset, strip])
   final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['sentences'])
   return final_dataset

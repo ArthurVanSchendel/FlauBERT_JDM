@@ -3,6 +3,8 @@ import torch
 from transformers.modeling_camembert import CamembertForMaskedLM
 from transformers.tokenization_camembert import CamembertTokenizer
 
+
+
 def fill_mask(masked_input, model, tokenizer, topk):
     # Adapted from https://github.com/pytorch/fairseq/blob/master/fairseq/models/roberta/hub_interface.py
     assert masked_input.count("<mask>") == 1
