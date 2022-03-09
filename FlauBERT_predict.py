@@ -26,11 +26,10 @@ def extract_txt_from_html(url):
     html = urlopen(url).read()
     soup = BeautifulSoup(html, features="html.parser")
     soup.prettify()
-    print("SOUP = ", soup)
     indexes = []
     sentences = soup.find_all('sen')
     lex_sem_relations = soup.find_all('ch')
-    masks_targets = soup.find_all('m')
+    masked_targets = soup.find_all('m')
     for j in range(len(sentences)):
       indexes.append(j)
     final_txt = pd.DataFrame(columns=['masked_sentences', 'masked_target', 'lexico_sem_relation'], index=indexes)
@@ -40,7 +39,7 @@ def extract_txt_from_html(url):
       text = text.replace('</sen>', '.')
 
       masks = str(masked_targets[i]).replace('<m>', '')
-      masks = masks.replace('</m>', '.')
+      masks = masks.replace('</m>', '')
       masks = masks.replace('&gt;', '>')
       masks = masks.replace('&lt;', '<')
 
@@ -97,10 +96,11 @@ top_10_token = []
 
 
 for i in range(csv_df.shape[0]):
-  csv_df.loc[i][0] = csv_df.loc[i][0].replace("<mask>", f"{tokenizer.mask_token}")
-  print("\n JDM MASKED SENTENCE = ", csv_df.loc[i][0])
-  print("\n JDM MASKED TARGET = ", csv_df.loc[i][1], "\n ")
-  #print("\n JDM LEXICO-SEMANTIC RELATION = ", csv_df.loc[i][2])
+  sample_data.loc[i][0] = sample_data.loc[i][0].replace("<mask>", f"{tokenizer.mask_token}")
+  print("\n JDM MASKED SENTENCE = ", sample_data.loc[i][0])
+  print("\n JDM LEXICO-SEMANTIC RELATION = ", sample_data.loc[i][1])
+  print("\n JDM MASKED TARGET = ", sample_data.loc[i][2], "\n ")
+
 
   sequence = (
       csv_df.loc[i][0]
