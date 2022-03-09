@@ -106,6 +106,7 @@ min_index = -1
 i=0
 
 for name_model in name_models:
+    #### PUSH THE MODEL ON HUGGING FACE: push_to_hub=True,
   training_args = TrainingArguments(
       f"{name_model}-finetuned-JDM_text",
       evaluation_strategy = "epoch",
@@ -113,7 +114,6 @@ for name_model in name_models:
       num_train_epochs=10,
       logging_steps=1,
       weight_decay=0.01,
-      push_to_hub=True,
   )
   data_collator = DataCollatorForLanguageModeling(tokenizer=tokens[i], mlm_probability=0.15)  ###  15% of sentence is masked
 

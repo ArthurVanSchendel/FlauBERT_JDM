@@ -6,10 +6,12 @@ import math
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-from transformers.modeling_camembert import CamembertForMaskedLM
-from transformers.tokenization_camembert import CamembertTokenizer
-from fast_bert.data_lm import BertLMDataBunch
-from fast_bert.learner_lm import BertLMLearner
+from transformers import CamembertForMaskedLM, CamembertTokenizer, AdamW
+from transformers import AutoModelForMaskedLM, AutoTokenizer
+
+from sklearn import metrics
+from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
+
 import logging
 
 from datasets import load_dataset
@@ -61,36 +63,11 @@ def create_dataset(nb_calls, url, type_dataset):
   return final_dataset
 
 url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=10"
+modelname = 'camembert-base'
 
 txt_train = create_dataset(3, url_data, "train")
 txt_valid = create_dataset(2, url_data, "valid")
 
-databunch_lm = BertLMDataBunch.from_raw_corpus(
-
-                    text_list= txt_train,
-                    tokenizer= 'camembert-base',
-                    batch_size_per_gpu= 8,
-                    max_seq_length= 512,
-                    multi_gpu= False,
-                    model_type= 'camembert-base',
-                    logger=logger)
-
-learner_lm = BertLMLearner.from_pretrained_model(
-                            dataBunch=databunch_lm,
-                            pretrained_path='camembert-base',
-                            output_dir=MODEL_PATH,
-                            metrics=[],
-                            device=device,
-                            logger=logger,
-                            multi_gpu=False,
-                            logging_steps=50,
-                            fp16_opt_level="O2")
-
-lm_learner.fit(epochs=10,
-            lr=2e-5,
-            validate=True,
-            schedule_type="warmup_cosine",
-            optimizer_type="adamw")
-
-lm_learner.validate()
-lm_learner.save_model()
+#tokenizer = CamembertTokenizer.from_pretrained(modelname, do_lower_case=False)
+tokenizer = AutoTokenizer.from_pretrained(modelname, padding=True, truncation=True)
+model = AutoModelForMaskedLM.from_pretrained(modelname)
