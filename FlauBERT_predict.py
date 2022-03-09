@@ -24,52 +24,47 @@ if torch.cuda.is_available():
 else:
     print("Will work on CPU.")
 
-filename = "input_raw.txt"
-file = open(filename, 'rt')
-text = file.readlines()
-file.close()
+def extract_txt_from_html(url):
+    html = urlopen(url).read()
+    soup = BeautifulSoup(html, features="html.parser")
+    soup.prettify()
+    indexes = []
+    sentences = soup.find_all('sen')
+    lex_sem_relations = soup.find_all('ch')
+    for j in range(len(sentences)):
+      indexes.append(j)
+    final_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
+    #final_txt = pd.DataFrame(columns=['sentences'])
+    for i in range(len(sentences)):
+      tmp_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
+      text = str(sentences[i]).replace('<sen>', '')
+      text = text.replace('</sen>', '.')
+      lex_sem = str(lex_sem_relations[i]).replace('<ch>', '')
+      lex_sem = lex_sem.replace('</ch>', '')
+      lex_sem = lex_sem.replace('&gt;', '>')
 
+      final_txt['sentences'].loc[i] = text
+      final_txt['lexico_sem_relation'].loc[i] = lex_sem
+    return final_txt, len(sentences)
 
-text = np.array(text)
-print("TEXT SHAPE = ", text.shape)
+def create_dataset(nb_calls, url, type_dataset):
+  indexes = []
+  final_dataset = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'])
+  #tmp_dataset = []
+  for i in range(nb_calls):
+    strip, len_data = extract_txt_from_html(url)
+    final_dataset = pd.concat([final_dataset, strip])
+  final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['sentences'])
+  return final_dataset
 
-##  CREATE CSV FROM TXT FILE, WITH 3 COLUMNS : MASKED SENTENCE, TARGET WORD, LEXICO-SEMANTIC RELATION
-#csv = pd.read_csv("input_masked_training.csv", encoding='unicode_escape', names=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
-csv_df = pd.DataFrame(columns=['masked_sentence', 'masked_target', 'lexico_semantic_relation'])
-
-masked_sentences = []
-masked_targets = []
-lexico_semantic_relations = []
-
-for i in range(text.shape[0]):
-  if text[i] == '\n':
-    continue
-
-  splitted_sentence = text[i].split(";")
-  splitted_sentence = np.array(splitted_sentence)
-  print("splitted sentence 0 = ", splitted_sentence[0])
-  print("splitted sentence 1 = ", splitted_sentence[1])
-  print("splitted sentence 2 = ", splitted_sentence[2])
-
-  for j in range(2):
-    splitted_sentence[j] = splitted_sentence[j].strip()
-
-
-  splitted_sentence[0] = splitted_sentence[0] + '.'
-  masked_sentences.append(splitted_sentence[0])
-  masked_targets.append(splitted_sentence[1])
-  lexico_semantic_relations.append(splitted_sentence[2])
-
-csv_df['masked_sentence'] = masked_sentences
-csv_df['masked_target'] = masked_targets
-csv_df['lexico_semantic_relation'] = lexico_semantic_relations
-print("CSV = ", csv_df)
-### ADD JeuxDeMots DATA for FINETUNING
 
 """
-JDM DATA: (extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=4 )
+JDM DATA:(extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=5
 """
+url_data = 'http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=5'
 
+sample_data = create_dataset(2, url_data, "test")
+dataset = load_dataset('text', data_files={'test': 'aggregate_test.txt'})
 # Choose among ['flaubert/flaubert_small_cased', 'flaubert/flaubert_base_uncased',
 #               'flaubert/flaubert_base_cased', 'flaubert/flaubert_large_cased']
 
@@ -85,6 +80,11 @@ top_2_token = []
 top_3_token = []
 top_4_token = []
 top_5_token = []
+top_6_token = []
+top_7_token = []
+top_8_token = []
+top_9_token = []
+top_9_token = []
 
 
 for i in range(csv_df.shape[0]):
@@ -101,7 +101,7 @@ for i in range(csv_df.shape[0]):
   mask_token_index = torch.where(inputs["input_ids"] == tokenizer.mask_token_id)[1]
   token_logits = model(**inputs).logits
   mask_token_logits = token_logits[0, mask_token_index, :]
-  top_5_tokens = torch.topk(mask_token_logits, 5, dim=1).indices[0].tolist()
+  top_10_tokens = torch.topk(mask_token_logits, 10, dim=1).indices[0].tolist()
   k = 0
   for token in top_5_tokens:
     print(sequence.replace(tokenizer.mask_token, tokenizer.decode([token])))
@@ -114,6 +114,16 @@ for i in range(csv_df.shape[0]):
     elif k == 3:
       top_4_token.append(tokenizer.decode([token]))
     elif k == 4:
+      top_5_token.append(tokenizer.decode([token]))
+    elif k == 5:
+      top_5_token.append(tokenizer.decode([token]))
+    elif k == 6:
+      top_5_token.append(tokenizer.decode([token]))
+    elif k == 7:
+      top_5_token.append(tokenizer.decode([token]))
+    elif k == 8:
+      top_5_token.append(tokenizer.decode([token]))
+    elif k == 9:
       top_5_token.append(tokenizer.decode([token]))
     else:
       print("error, you should not be here, token = ", token, " : ", tokenizer.decode([token]))
