@@ -1,28 +1,23 @@
-from posixpath import join
 import torch
 import transformers
 import numpy as np
 import pandas as pd
-import csv
 import math
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-
-from transformers import XLMTokenizer, XLMWithLMHeadModel, pipeline
-from transformers import FlaubertModel, FlaubertTokenizer
 from transformers import AutoModelForMaskedLM, AutoTokenizer
 from transformers import DataCollatorForLanguageModeling
 from transformers import Trainer, TrainingArguments
 
 from datasets import load_dataset
 
-
 if torch.cuda.is_available():
     print("GPU is available.")
     device = torch.cuda.current_device()
 else:
     print("Will work on CPU.")
+
 
 def tokenize_function(examples):
     return tokenizer(examples["text"])
@@ -43,7 +38,6 @@ def group_texts(examples):
     result["labels"] = result["input_ids"].copy()
     return result
 
-
 def extract_txt_from_html(url):
     html = urlopen(url).read()
     soup = BeautifulSoup(html, features="html.parser")
@@ -51,10 +45,10 @@ def extract_txt_from_html(url):
     indexes = []
     sentences = soup.find_all('sen')
     lex_sem_relations = soup.find_all('ch')
-    print("soup = ", soup)
     for j in range(len(sentences)):
       indexes.append(j)
     final_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
+    #final_txt = pd.DataFrame(columns=['sentences'])
     for i in range(len(sentences)):
       tmp_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
       text = str(sentences[i]).replace('<sen>', '')
@@ -65,9 +59,6 @@ def extract_txt_from_html(url):
 
       final_txt['sentences'].loc[i] = text
       final_txt['lexico_sem_relation'].loc[i] = lex_sem
-      print("TEXT SHAPE = ", np.array(text).shape)
-      print("Extract txt from html = ", final_txt)
-      print("LEN SENTENCES = ", len(sentences))
     return final_txt, len(sentences)
 
 
@@ -77,73 +68,73 @@ def create_dataset(nb_calls, url, type_dataset):
   #tmp_dataset = []
   for i in range(nb_calls):
     strip, len_data = extract_txt_from_html(url)
-    print("STRIP BEFORE APPEND TO DATASET = ", strip)
     final_dataset = pd.concat([final_dataset, strip])
-
-  print('FINAL DATASET = ', final_dataset)
   final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['sentences'])
   return final_dataset
 
-modelname = 'flaubert/flaubert_large_cased'
-tokenizer = AutoTokenizer.from_pretrained(modelname, use_fast=True)
-model = AutoModelForMaskedLM.from_pretrained(modelname)
+modelname1 = 'flaubert/flaubert_large_cased'
+modelname2 = 'flaubert/flaubert_base_cased'
+modelname3 = 'flaubert/flaubert_base_uncased'
 
+name_models = [modelname1, modelname2, modelname3]
 
-######   DATASET PARAMETERS #######
+models = []
+tokens = []
+for name_model in name_models:
+  print("model name = ", name_model)
+  tokenizer = AutoTokenizer.from_pretrained(name_model, padding=True, truncation=True)
+  model = AutoModelForMaskedLM.from_pretrained(name_model)
+  models.append(model)
+  tokens.append(tokenizer)
 
-##  CHUNK = Nombre de chunk selectionné
-## ITER  = Nombre de variantes par chunk
+url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=10"
 
-### TAILLE MAX DE DATASET = CHUNK * ITER
-
-
-url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=10&verbose=0&iter=100"
-#### THIS LINK GENERATES 1300 LINES (SENTENCES)
-
-txt_train = create_dataset(2, url_data, "train")
-txt_valid = create_dataset(1, url_data, "valid")
-#txt_train = raw_txt_to_txt('input_raw_tr.txt', 'aggregates', 'aggregate_train')
-#txt_valid = raw_txt_to_txt('input_raw_valid.txt', 'aggregates', 'aggregate_valid')
-print("txt train = ", txt_train)
-print("txt train = ", txt_valid)
-## LOAD DATASETs HERE ###
+txt_train = create_dataset(3, url_data, "train")
+txt_valid = create_dataset(2, url_data, "valid")
 datasets = load_dataset('text', data_files={'train': 'aggregate_train.txt', 'validation': 'aggregate_valid.txt'})
-tokenized_datasets = datasets.map(tokenize_function, batched=True, num_proc=4, remove_columns=['text'])
+
+tokenized_datasets = datasets.map(tokenize_function, batched=True, remove_columns=['text'])
 
 lm_datasets = tokenized_datasets.map(
     group_texts,
     batched=True,
     batch_size=1000,
-    num_proc=4,
 )
 
-print("DATASETS TRAIN = ", datasets['train'])
-print("DATASETS VALID = ", datasets['validation'])
-print("len dataset = ", np.array(datasets).shape)
+perplexity_results = []
+min_perplex = 999.9
+min_index = -1
+i=0
 
-model_name = modelname.split("/")[-1]
+for name_model in name_models:
+  training_args = TrainingArguments(
+      f"{name_model}-finetuned-JDM_text",
+      evaluation_strategy = "epoch",
+      learning_rate=2e-5,
+      num_train_epochs=10,
+      logging_steps=1,
+      weight_decay=0.01,
+      push_to_hub=True,
+  )
+  data_collator = DataCollatorForLanguageModeling(tokenizer=tokens[i], mlm_probability=0.15)  ###  15% of sentence is masked
 
-training_args = TrainingArguments(
-    f"{model_name}-finetuned-JDM_text",
-    evaluation_strategy = "epoch",
-    learning_rate=2e-5,
-    num_train_epochs=7,
-    logging_steps=1,
-    per_device_train_batch_size=8,
-    weight_decay=0.01,
-)
+  trainer = Trainer(
+      model=models[i],
+      args=training_args,
+      train_dataset=lm_datasets["train"],
+      eval_dataset=lm_datasets["validation"],
+      data_collator=data_collator,
+  )
+  trainer.train()
+  eval_results = trainer.evaluate()
+  perplexity = math.exp(eval_results['eval_loss'])
+  if perplexity < min_perplex:
+    min_perplex = perplexity
+    min_index = i
+    best_train = trainer
+  print(f"Perplexity: {perplexity}")
+  perplexity_results.append(perplexity)
 
-data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm_probability=0.15)  ###  15% of sentence is masked
-
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=lm_datasets["train"],
-    eval_dataset=lm_datasets["validation"],
-    data_collator=data_collator,
-)
-####### TRAIN ###########
-trainer.train()
-####### EVAL ############
-eval_results = trainer.evaluate()
-print(f"Perplexity: {math.exp(eval_results['eval_loss']):.2f}")
+  i+=1
+best_train.push_to_hub()
+print(f"best model with lowest perplexity : {name_models[min_index]} with perplexity of {min_perplex}")
