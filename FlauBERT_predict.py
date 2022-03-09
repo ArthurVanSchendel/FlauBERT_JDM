@@ -37,6 +37,8 @@ def extract_txt_from_html(url):
     for i in range(len(sentences)):
       text = str(sentences[i]).replace('<sen>', '')
       text = text.replace('</sen>', '.')
+      text = text.replace('&gt;', '>')
+      text = text.replace('&lt;', '<')
 
       masks = str(masked_targets[i]).replace('<m>', '')
       masks = masks.replace('</m>', '')
@@ -58,13 +60,13 @@ def create_dataset(nb_calls, url, type_dataset):
   #tmp_dataset = []
   for i in range(nb_calls):
     strip = extract_txt_from_html(url)
-    final_dataset = pd.concat([final_dataset, strip])
+    final_dataset = pd.concat([final_dataset, strip], ignore_index=True)
   final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['masked_sentences'])
   return final_dataset
 
 
 """
-JDM DATA:(extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=5
+JDM DATA:(extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=2
 """
 
 url_data = 'http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=5&mask=1'
@@ -94,16 +96,17 @@ top_8_token = []
 top_9_token = []
 top_10_token = []
 
-
-for i in range(csv_df.shape[0]):
+print("shape of sample data = ", sample_data.shape)
+for i in range(sample_data.shape[0]):
   sample_data.loc[i][0] = sample_data.loc[i][0].replace("<mask>", f"{tokenizer.mask_token}")
   print("\n JDM MASKED SENTENCE = ", sample_data.loc[i][0])
-  print("\n JDM LEXICO-SEMANTIC RELATION = ", sample_data.loc[i][1])
   print("\n JDM MASKED TARGET = ", sample_data.loc[i][2], "\n ")
+  print("\n JDM LEXICO-SEMANTIC RELATION = ", sample_data.loc[i][1])
+
 
 
   sequence = (
-      csv_df.loc[i][0]
+      sample_data.loc[i][0]
   )
 
   inputs = tokenizer(sequence, return_tensors="pt")
@@ -112,7 +115,7 @@ for i in range(csv_df.shape[0]):
   mask_token_logits = token_logits[0, mask_token_index, :]
   top_10_tokens = torch.topk(mask_token_logits, 10, dim=1).indices[0].tolist()
   k = 0
-  for token in top_5_tokens:
+  for token in top_10_tokens:
     print(sequence.replace(tokenizer.mask_token, tokenizer.decode([token])))
     if k == 0:
       top_1_token.append(tokenizer.decode([token]))
@@ -144,8 +147,8 @@ for top_i_token in top_tokens:
   csv_df[f'mask_pred_{i}'] = top_i_token
   i+=1
 
-print("CSV DATAFRAME AFTER TOP 10 TOKEN PREDS = ", csv_df)
-csv_df.to_csv('results_FlauBERT_JDM.csv', encoding='utf-8-sig')
+print("CSV DATAFRAME AFTER TOP 10 TOKEN PREDS = ", sample_data)
+sample_data.to_csv('results_FlauBERT_JDM.csv', encoding='utf-8-sig')
 
 ####  CREATE A TRAIN SET AND A VALIDATION SET/ input_raw_tr.txt AND input_raw_valid.txt
 ## THE SETS SHOULD NOT BE MASKED YET, IT WILL BE HANDLED WITHIN BERT (SEE BELOW)
