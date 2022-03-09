@@ -26,18 +26,24 @@ def extract_txt_from_html(url):
     html = urlopen(url).read()
     soup = BeautifulSoup(html, features="html.parser")
     soup.prettify()
+    print("SOUP = ", soup)
     indexes = []
     sentences = soup.find_all('sen')
     lex_sem_relations = soup.find_all('ch')
-    masks = soup.find_all('')
+    masks_targets = soup.find_all('m')
     for j in range(len(sentences)):
       indexes.append(j)
     final_txt = pd.DataFrame(columns=['masked_sentences', 'masked_target', 'lexico_sem_relation'], index=indexes)
     #final_txt = pd.DataFrame(columns=['sentences'])
     for i in range(len(sentences)):
-      tmp_txt = pd.DataFrame(columns=['masked_sentences', 'masked_target', 'lexico_sem_relation'], index=indexes)
       text = str(sentences[i]).replace('<sen>', '')
       text = text.replace('</sen>', '.')
+
+      masks = str(masked_targets[i]).replace('<m>', '')
+      masks = masks.replace('</m>', '.')
+      masks = masks.replace('&gt;', '>')
+      masks = masks.replace('&lt;', '<')
+
       lex_sem = str(lex_sem_relations[i]).replace('<ch>', '')
       lex_sem = lex_sem.replace('</ch>', '')
       lex_sem = lex_sem.replace('&gt;', '>')

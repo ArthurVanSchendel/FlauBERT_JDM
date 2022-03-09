@@ -39,7 +39,6 @@ def extract_txt_from_html(url):
     final_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
     #final_txt = pd.DataFrame(columns=['sentences'])
     for i in range(len(sentences)):
-      tmp_txt = pd.DataFrame(columns=['sentences', 'lexico_sem_relation'], index=indexes)
       text = str(sentences[i]).replace('<sen>', '')
       text = text.replace('</sen>', '.')
       lex_sem = str(lex_sem_relations[i]).replace('<ch>', '')
