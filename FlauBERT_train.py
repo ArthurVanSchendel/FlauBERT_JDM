@@ -72,10 +72,10 @@ def create_dataset(nb_calls, url, type_dataset):
   return final_dataset
 
 modelname1 = 'flaubert/flaubert_large_cased'
-modelname2 = 'flaubert/flaubert_base_cased'
-modelname3 = 'flaubert/flaubert_base_uncased'
+#modelname2 = 'flaubert/flaubert_base_cased'
+#modelname3 = 'flaubert/flaubert_base_uncased'
 
-name_models = [modelname1, modelname2, modelname3]
+name_models = [modelname1] #, modelname2, modelname3
 
 models = []
 tokens = []
@@ -86,10 +86,10 @@ for name_model in name_models:
   models.append(model)
   tokens.append(tokenizer)
 
-url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=20&verbose=0&iter=10"
+url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=10&verbose=0&iter=10"
 
-txt_train = create_dataset(3, url_data, "train")
-txt_valid = create_dataset(2, url_data, "valid")
+txt_train = create_dataset(5, url_data, "train")
+txt_valid = create_dataset(3, url_data, "valid")
 datasets = load_dataset('text', data_files={'train': 'aggregate_train.txt', 'validation': 'aggregate_valid.txt'})
 
 tokenized_datasets = datasets.map(tokenize_function, batched=True, remove_columns=['text'])
@@ -135,5 +135,6 @@ for name_model in name_models:
   perplexity_results.append(perplexity)
 
   i+=1
-best_train.push_to_hub()
+#best_train.push_to_hub()
+best_train.save_model(f"retrained_{modelname1}")
 print(f"best model with lowest perplexity : {name_models[min_index]} with perplexity of {min_perplex}")

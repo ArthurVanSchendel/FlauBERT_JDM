@@ -149,7 +149,7 @@ for i in range(sample_data.shape[0]):
 
 print('info = ', info)
 with open('result_flauBERT_JDM.txt', 'w', encoding='utf-8') as f:
-    init_lines = [modelname, f'cycle = {0} - (baseline)', 'train parameters = [] \n']
+    init_lines = ['///', modelname, f'cycle = {0} - (baseline)', 'train parameters = [] ','/// \n']
     f.write('\n'.join(init_lines))
     f.write('\n')
     for i in range(sample_data.shape[0]):
