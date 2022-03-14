@@ -81,12 +81,12 @@ models = []
 tokens = []
 for name_model in name_models:
   print("model name = ", name_model)
-  tokenizer = AutoTokenizer.from_pretrained(name_model, padding=True, truncation=True)
+  tokenizer = AutoTokenizer.from_pretrained(name_model, padding=True, truncation=True).to(device)
   model = AutoModelForMaskedLM.from_pretrained(name_model)
   models.append(model)
   tokens.append(tokenizer)
 
-url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=10&verbose=0&iter=10"
+url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=4&verbose=0&iter=5&mask=1"
 
 txt_train = create_dataset(5, url_data, "train")
 txt_valid = create_dataset(3, url_data, "valid")

@@ -74,7 +74,7 @@ JDM DATA:(extracted via: http://www.jeuxdemots.org/intern_interpretor.php?chunks
 
 url_data = 'http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=4&verbose=0&iter=1&mask=1'
 
-#sample_data = create_dataset(8, url_data, "test")
+sample_data = create_dataset(3, url_data, "test")
 print("SAMPLE DATA = ", sample_data)
 dataset = load_dataset('text', data_files={'test': 'aggregate_baseline.txt'})
 print("DATASET = ", dataset)
