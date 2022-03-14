@@ -82,7 +82,7 @@ tokens = []
 for name_model in name_models:
   print("model name = ", name_model)
   tokenizer = AutoTokenizer.from_pretrained(name_model, padding=True, truncation=True).to(device)
-  model = AutoModelForMaskedLM.from_pretrained(name_model)
+  model = AutoModelForMaskedLM.from_pretrained(name_model).to(device)
   models.append(model)
   tokens.append(tokenizer)
 
