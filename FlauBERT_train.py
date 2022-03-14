@@ -68,7 +68,7 @@ def create_dataset(nb_calls, url, type_dataset):
   for i in range(nb_calls):
     strip = extract_txt_from_html(url)
     final_dataset = pd.concat([final_dataset, strip])
-  final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['sentences'])
+  final_dataset.to_csv(f'aggregate_{type_dataset}.txt', encoding='utf-8-sig', columns=['sentences'])
   return final_dataset
 
 modelname1 = 'flaubert/flaubert_large_cased'
