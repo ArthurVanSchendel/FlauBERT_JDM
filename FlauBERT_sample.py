@@ -52,6 +52,6 @@ def create_dataset(nb_calls, url, type_dataset):
   final_dataset.to_csv(f"aggregate_{type_dataset}.txt", encoding="utf-8-sig", columns=['sentences', 'masks', 'lexico_sem_relations'])
   return final_dataset
 
-url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=4&verbose=0&iter=5&mask=1"
+url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=100&verbose=0&iter=1&mask=1"
 
-txt_baseline = create_dataset(7, url_data, "baseline")
+txt_baseline = create_dataset(2, url_data, "baseline")

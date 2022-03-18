@@ -12,12 +12,6 @@ from transformers import Trainer, TrainingArguments
 
 from datasets import load_dataset
 
-if torch.cuda.is_available():
-    print("GPU is available.")
-    device = torch.cuda.current_device()
-else:
-    print("Will work on CPU.")
-
 
 def tokenize_function(examples):
     return tokenizer(examples["text"])
@@ -77,18 +71,25 @@ modelname1 = 'flaubert/flaubert_large_cased'
 
 name_models = [modelname1] #, modelname2, modelname3
 
+if torch.cuda.is_available():
+    print("GPU is available.")
+    device = torch.cuda.current_device()
+else:
+    print("Will work on CPU.")
+
 models = []
 tokens = []
+
 for name_model in name_models:
   print("model name = ", name_model)
-  tokenizer = AutoTokenizer.from_pretrained(name_model, padding=True, truncation=True).to(device)
+  tokenizer = AutoTokenizer.from_pretrained(name_model, padding=True, truncation=True)
   model = AutoModelForMaskedLM.from_pretrained(name_model).to(device)
   models.append(model)
   tokens.append(tokenizer)
 
-url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=4&verbose=0&iter=5&mask=1"
+url_data = "http://www.jeuxdemots.org/intern_interpretor.php?chunks-display=1&chunk=100&verbose=0&iter=1&mask=1"
 
-txt_train = create_dataset(5, url_data, "train")
+txt_train = create_dataset(10, url_data, "train")
 txt_valid = create_dataset(3, url_data, "valid")
 datasets = load_dataset('text', data_files={'train': 'aggregate_train.txt', 'validation': 'aggregate_valid.txt'})
 
@@ -111,7 +112,7 @@ for name_model in name_models:
       f"{name_model}-finetuned-JDM_text",
       evaluation_strategy = "epoch",
       learning_rate=2e-5,
-      num_train_epochs=10,
+      num_train_epochs=20,
       per_device_train_batch_size=8,
       logging_steps=1,
       weight_decay=0.01,
