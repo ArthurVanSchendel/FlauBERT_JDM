@@ -1,0 +1,660 @@
+﻿,sentences,masks,lexico_sem_relations
+0,Les <mask> peuvent être raccommodés.,habits,::>66:37144>26:35069
+1,Les habits peuvent <mask> raccommodés.,être,::>66:37144>26:35069
+2,Les habits peuvent être <mask>.,raccommodés,::>66:37144>26:35069
+3,Un <mask> pouvait buter.,malfrat,::>66:90105>24:12255
+4,Un malfrat pouvait <mask>.,buter,::>66:90105>24:12255
+5,Un <mask> de café est un lieu où il est possible de tremper.,bol,::>66:339461>30:119858
+6,Un bol de <mask> est un lieu où il est possible de tremper.,café,::>66:339461>30:119858
+7,Un bol de café est un <mask> où il est possible de tremper.,lieu,::>66:339461>30:119858
+8,Un bol de café est un lieu où il est <mask> de tremper.,possible,::>66:339461>30:119858
+9,Un bol de café est un lieu où il est possible de <mask>.,tremper,::>66:339461>30:119858
+10,La <mask> va verrouiller la porte.,personne,::>66:225916>24:327607
+11,La personne va <mask> la porte.,verrouiller,::>66:225916>24:327607
+12,La personne va verrouiller la <mask>.,porte,::>66:225916>24:327607
+13,Une <mask> pourrait prendre un selfie.,personne,::>66:317387>26:86306
+14,Une personne pourrait <mask> un selfie.,prendre,::>66:317387>26:86306
+15,Une personne pourrait prendre un <mask>.,selfie,::>66:317387>26:86306
+16,Un <mask> peut abattre de la roche avec une rivelaine.,mineur,::>66:16598618>155:97498
+17,Un mineur peut <mask> de la roche avec une rivelaine.,abattre,::>66:16598618>155:97498
+18,Un mineur peut abattre de la <mask> avec une rivelaine.,roche,::>66:16598618>155:97498
+19,Un mineur peut abattre de la roche avec une <mask>.,rivelaine,::>66:16598618>155:97498
+20,Une <mask> pouvait enlever.,personne,::>13:225916>29:82345
+21,Une personne pouvait <mask>.,enlever,::>13:225916>29:82345
+22,Une sorte d'<mask> pourrait jongler avec des objets.,antipodiste,::>14:63425>29:30083
+23,Une sorte d'antipodiste pourrait <mask> avec des objets.,jongler,::>14:63425>29:30083
+24,Une sorte d'antipodiste pourrait jongler avec des <mask>.,objets,::>14:63425>29:30083
+25,On pourrait <mask> le sol à l'aide de la serpillère.,laver,::>66:153275>25:165278
+26,On pourrait laver le <mask> à l'aide de la serpillère.,sol,::>66:153275>25:165278
+27,On pourrait laver le sol à l'<mask> de la serpillère.,aide,::>66:153275>25:165278
+28,On pourrait laver le sol à l'aide de la <mask>.,serpillère,::>66:153275>25:165278
+29,Un <mask> de maths va écrire une démonstration.,prof,::>66:268926>24:16765897
+30,Un prof de <mask> va écrire une démonstration.,maths,::>66:268926>24:16765897
+31,Un prof de maths va <mask> une démonstration.,écrire,::>66:268926>24:16765897
+32,Un prof de maths va écrire une <mask>.,démonstration,::>66:268926>24:16765897
+33,Une <mask> va braquer une banque.,personne,::>66:225916>24:167156
+34,Une personne va <mask> une banque.,braquer,::>66:225916>24:167156
+35,Une personne va braquer une <mask>.,banque,::>66:225916>24:167156
+36,Une <mask> peut séduire le mec.,femme,::>66:61490>24:16590703
+37,Une femme peut <mask> le mec.,séduire,::>66:61490>24:16590703
+38,Une femme peut séduire le <mask>.,mec,::>66:61490>24:16590703
+39,<mask> un peut tracer un cercle avec un compas.,quelqu',::>16:78429>29:245854
+40,Quelqu'un peut <mask> un cercle avec un compas.,tracer,::>16:78429>29:245854
+41,Quelqu'un peut tracer un <mask> avec un compas.,cercle,::>16:78429>29:245854
+42,Quelqu'un peut tracer un cercle avec un <mask>.,compas,::>16:78429>29:245854
+43,Il est <mask> de porter les missiles.,possible,::>66:136370>26:43404
+44,Il est possible de <mask> les missiles.,porter,::>66:136370>26:43404
+45,Il est possible de porter les <mask>.,missiles,::>66:136370>26:43404
+46,Les <mask> pourraient corriger des copies.,enseignants,::>66:155464>24:258252
+47,Les enseignants pourraient <mask> des copies.,corriger,::>66:155464>24:258252
+48,Les enseignants pourraient corriger des <mask>.,copies,::>66:155464>24:258252
+49,Une <mask> pouvait accoucher.,personne,::>66:116477>24:5979
+50,Une personne pouvait <mask>.,accoucher,::>66:116477>24:5979
+51,Un <mask> pourrait pousser.,enfant,::>13:124094>29:78635
+52,Un enfant pourrait <mask>.,pousser,::>13:124094>29:78635
+53,Un <mask> politique islamophobe pourrait vouloir chasser les arabes.,homme,::>66:17452960>24:17452964
+54,Un homme <mask> islamophobe pourrait vouloir chasser les arabes.,politique,::>66:17452960>24:17452964
+55,Un homme politique <mask> pourrait vouloir chasser les arabes.,islamophobe,::>66:17452960>24:17452964
+56,Un homme politique islamophobe pourrait <mask> chasser les arabes.,vouloir,::>66:17452960>24:17452964
+57,Un homme politique islamophobe pourrait vouloir <mask> les arabes.,chasser,::>66:17452960>24:17452964
+58,Un homme politique islamophobe pourrait vouloir chasser les <mask>.,arabes,::>66:17452960>24:17452964
+59,Une <mask> va voler le cadavre dans la morgue.,personne,::>66:16532123>15:141206
+60,Une personne va <mask> le cadavre dans la morgue.,voler,::>66:16532123>15:141206
+61,Une personne va voler le <mask> dans la morgue.,cadavre,::>66:16532123>15:141206
+62,Une personne va voler le cadavre dans la <mask>.,morgue,::>66:16532123>15:141206
+63,La <mask> peut détruire avec le missile antichar.,personne,::>66:225916>24:14484566
+64,La personne peut <mask> avec le missile antichar.,détruire,::>66:225916>24:14484566
+65,La personne peut détruire avec le <mask> antichar.,missile,::>66:225916>24:14484566
+66,La personne peut détruire avec le missile <mask>.,antichar,::>66:225916>24:14484566
+67,La <mask> va émincer.,personne,::>66:225916>24:88315
+68,La personne va <mask>.,émincer,::>66:225916>24:88315
+69,Un <mask> homme va boire une bière dans un bar.,jeune,::>66:49420>24:16604040
+70,Un jeune <mask> va boire une bière dans un bar.,homme,::>66:49420>24:16604040
+71,Un jeune homme va <mask> une bière dans un bar.,boire,::>66:49420>24:16604040
+72,Un jeune homme va boire une <mask> dans un bar.,bière,::>66:49420>24:16604040
+73,Un jeune homme va boire une bière dans un <mask>.,bar,::>66:49420>24:16604040
+74,Un <mask> de chasse peut intercepter.,avion,::>13:3304270>29:126398
+75,Un avion de <mask> peut intercepter.,chasse,::>13:3304270>29:126398
+76,Un avion de chasse peut <mask>.,intercepter,::>13:3304270>29:126398
+77,La <mask> va boire.,personne,::>66:225916>24:47918
+78,La personne va <mask>.,boire,::>66:225916>24:47918
+79,Une <mask> va déboucher la canalisation.,personne,::>14:57483>29:3605
+80,Une personne va <mask> la canalisation.,déboucher,::>14:57483>29:3605
+81,Une personne va déboucher la <mask>.,canalisation,::>14:57483>29:3605
+82,Une sorte de <mask> supérieur pourrait diriger.,père,::>13:14435587>29:135329
+83,Une sorte de père <mask> pourrait diriger.,supérieur,::>13:14435587>29:135329
+84,Une sorte de père supérieur pourrait <mask>.,diriger,::>13:14435587>29:135329
+85,Des <mask> pourraient stimuler.,substances,::>13:284011>29:9928
+86,Des substances pourraient <mask>.,stimuler,::>13:284011>29:9928
+87,Le <mask> pourrait interpeller un dealer.,BAC,::>66:153823>24:14532684
+88,Le bac pourrait <mask> un dealer.,interpeller,::>66:153823>24:14532684
+89,Le bac pourrait interpeller un <mask>.,dealer,::>66:153823>24:14532684
+90,Un <mask> pourrait marcher dans une merde de chien.,piéton,::>66:34604>24:16508648
+91,Un piéton pourrait <mask> dans une merde de chien.,marcher,::>66:34604>24:16508648
+92,Un piéton pourrait marcher dans une <mask> de chien.,merde,::>66:34604>24:16508648
+93,Un piéton pourrait marcher dans une merde de <mask>.,chien,::>66:34604>24:16508648
+94,Un <mask> pourrait mordre un main.,chien,::>66:214059>24:16608575
+95,Un chien pourrait <mask> un main.,mordre,::>66:214059>24:16608575
+96,Un chien pourrait mordre un <mask>.,main,::>66:214059>24:16608575
+97,Le <mask> est un lieu où il est possible de cuire des aliments.,four,::>66:9190>30:9740036
+98,Le four est un <mask> où il est possible de cuire des aliments.,lieu,::>66:9190>30:9740036
+99,Le four est un lieu où il est <mask> de cuire des aliments.,possible,::>66:9190>30:9740036
+100,Le four est un lieu où il est possible de <mask> des aliments.,cuire,::>66:9190>30:9740036
+101,Le four est un lieu où il est possible de cuire des <mask>.,aliments,::>66:9190>30:9740036
+102,Une sorte de <mask> de glaces peut vendre des glaces.,marchand,::>66:363257>24:16494134
+103,Une sorte de marchand de <mask> peut vendre des glaces.,glaces,::>66:363257>24:16494134
+104,Une sorte de marchand de glaces peut <mask> des glaces.,vendre,::>66:363257>24:16494134
+105,Une sorte de marchand de glaces peut vendre des <mask>.,glaces,::>66:363257>24:16494134
+106,Une <mask> peut se fracasser dans des rochers.,embarcation,::>31:399984>29:5054376
+107,Une embarcation peut se <mask> dans des rochers.,fracasser,::>31:399984>29:5054376
+108,Une embarcation peut se fracasser dans des <mask>.,rochers,::>31:399984>29:5054376
+109,La <mask> va retailler des vêtements trop larges.,couturière,::>14:14490879>29:128993
+110,La couturière va <mask> des vêtements trop larges.,retailler,::>14:14490879>29:128993
+111,La couturière va retailler des <mask> trop larges.,vêtements,::>14:14490879>29:128993
+112,La couturière va retailler des vêtements <mask> larges.,trop,::>14:14490879>29:128993
+113,La couturière va retailler des vêtements trop <mask>.,larges,::>14:14490879>29:128993
+114,La <mask> pourrait acheter quelque chose.,personne,::>13:225916>29:29926
+115,La personne pourrait <mask> quelque chose.,acheter,::>13:225916>29:29926
+116,La personne pourrait acheter <mask> chose.,quelque,::>13:225916>29:29926
+117,La personne pourrait acheter quelque <mask>.,chose,::>13:225916>29:29926
+118,Une <mask> va faire sauter la voiture avec le c-4.,personne,::>66:17433764>155:249470
+119,Une personne va <mask> sauter la voiture avec le c-4.,faire,::>66:17433764>155:249470
+120,Une personne va faire <mask> la voiture avec le c-4.,sauter,::>66:17433764>155:249470
+121,Une personne va faire sauter la <mask> avec le c-4.,voiture,::>66:17433764>155:249470
+122,Une personne va faire sauter la voiture avec le <mask>.,C-4,::>66:17433764>155:249470
+123,Une <mask> pourrait frapper l'agresseur.,personne,::>66:225916>24:16597052
+124,Une personne pourrait <mask> l'agresseur.,frapper,::>66:225916>24:16597052
+125,Une personne pourrait frapper l'<mask>.,agresseur,::>66:225916>24:16597052
+126,Le <mask> peut préparer l'oeuf sur le plat.,cuisinier,::>13:118790>29:16605482
+127,Le cuisinier peut <mask> l'oeuf sur le plat.,préparer,::>13:118790>29:16605482
+128,Le cuisinier peut préparer l'<mask> sur le plat.,oeuf,::>13:118790>29:16605482
+129,Le cuisinier peut préparer l'oeuf <mask> le plat.,sur,::>13:118790>29:16605482
+130,Le cuisinier peut préparer l'oeuf sur le <mask>.,plat,::>13:118790>29:16605482
+131,La <mask> va soulager avec un antiémétique.,personne,::>66:116477>24:14589281
+132,La personne va <mask> avec un antiémétique.,soulager,::>66:116477>24:14589281
+133,La personne va soulager avec un <mask>.,antiémétique,::>66:116477>24:14589281
+134,Un <mask> peut être contenu.,pesto,::>66:221048>26:34519
+135,Un pesto peut <mask> contenu.,être,::>66:221048>26:34519
+136,Un pesto peut être <mask>.,contenu,::>66:221048>26:34519
+137,Le <mask> pourrait transporter des gens.,train,::>13:27120>29:16604345
+138,Le train pourrait <mask> des gens.,transporter,::>13:27120>29:16604345
+139,Le train pourrait transporter des <mask>.,gens,::>13:27120>29:16604345
+140,On peut <mask> une malbouffe.,proposer,::>14:115709>29:8066
+141,On peut proposer une <mask>.,malbouffe,::>14:115709>29:8066
+142,Les <mask> de police pourraient interpeler.,forces,::>66:224153>24:2414135
+143,Les forces de <mask> pourraient interpeler.,police,::>66:224153>24:2414135
+144,Les forces de police pourraient <mask>.,interpeler,::>66:224153>24:2414135
+145,Une sorte de <mask> pourrait aspirer.,moustique,::>13:270521>29:110836
+146,Une sorte de moustique pourrait <mask>.,aspirer,::>13:270521>29:110836
+147,Le <mask> peut chercher des minéraux.,minéralogiste,::>66:6604>24:14474198
+148,Le minéralogiste peut <mask> des minéraux.,chercher,::>66:6604>24:14474198
+149,Le minéralogiste peut chercher des <mask>.,minéraux,::>66:6604>24:14474198
+150,Les <mask> cliniques peuvent s'aggraver.,signes,::>66:672>24:139402
+151,Les signes <mask> peuvent s'aggraver.,cliniques,::>66:672>24:139402
+152,Les signes cliniques peuvent s'<mask>.,aggraver,::>66:672>24:139402
+153,Une <mask> pourrait toucher.,femme,::>13:61490>29:82900
+154,Une femme pourrait <mask>.,toucher,::>13:61490>29:82900
+155,Il est <mask> de compulser le livre.,possible,::>14:214244>29:49595
+156,Il est possible de <mask> le livre.,compulser,::>14:214244>29:49595
+157,Il est possible de compulser le <mask>.,livre,::>14:214244>29:49595
+158,L'<mask> peut envahir le pays.,armée,::>14:241988>29:5076
+159,L'armée peut <mask> le pays.,envahir,::>14:241988>29:5076
+160,L'armée peut envahir le <mask>.,pays,::>14:241988>29:5076
+161,Un <mask> peut trousser une soubrette.,monsieur,::>14:123620>29:94452
+162,Un monsieur peut <mask> une soubrette.,trousser,::>14:123620>29:94452
+163,Un monsieur peut trousser une <mask>.,soubrette,::>14:123620>29:94452
+164,Un <mask> de garçons pourrait mater dans la rue.,groupe,::>66:5990734>24:14464646
+165,Un groupe de <mask> pourrait mater dans la rue.,garçons,::>66:5990734>24:14464646
+166,Un groupe de garçons pourrait <mask> dans la rue.,mater,::>66:5990734>24:14464646
+167,Un groupe de garçons pourrait mater dans la <mask>.,rue,::>66:5990734>24:14464646
+168,Le <mask> va voler.,pigeon,::>13:215024>29:213857
+169,Le pigeon va <mask>.,voler,::>13:215024>29:213857
+170,Un <mask> pourrait nettoyer sa maison.,père,::>14:45179>29:85286
+171,Un père pourrait <mask> sa maison.,nettoyer,::>14:45179>29:85286
+172,Un père pourrait nettoyer sa <mask>.,maison,::>14:45179>29:85286
+173,La <mask> pourrait s'exprimer.,personne,::>66:116477>24:137965
+174,La personne pourrait s'<mask>.,exprimer,::>66:116477>24:137965
+175,La <mask> pourrait cuire avec une sorte de bbq.,personne,::>16:250257>29:5115
+176,La personne pourrait <mask> avec une sorte de bbq.,cuire,::>16:250257>29:5115
+177,La personne pourrait cuire avec une sorte de <mask>.,bbq,::>16:250257>29:5115
+178,La <mask> pouvait garer un automobile.,personne,::>66:116477>24:16558920
+179,La personne pouvait <mask> un automobile.,garer,::>66:116477>24:16558920
+180,La personne pouvait garer un <mask>.,automobile,::>66:116477>24:16558920
+181,La <mask> peut prendre dans une bâtiment de grande hauteur.,personne,::>66:116477>24:14530499
+182,La personne peut <mask> dans une bâtiment de grande hauteur.,prendre,::>66:116477>24:14530499
+183,La personne peut prendre dans une <mask> de grande hauteur.,bâtiment,::>66:116477>24:14530499
+184,La personne peut prendre dans une bâtiment de <mask> hauteur.,grande,::>66:116477>24:14530499
+185,La personne peut prendre dans une bâtiment de grande <mask>.,hauteur,::>66:116477>24:14530499
+186,Un <mask> va converser.,réfrigérateur,::>66:128721>24:108900
+187,Un réfrigérateur va <mask>.,converser,::>66:128721>24:108900
+188,Un <mask> va se battre.,soldat,::>66:10909834>24:91932
+189,Un soldat va se <mask>.,battre,::>66:10909834>24:91932
+190,La <mask> pourrait tuer un vampire.,personne,::>14:6546>29:7943
+191,La personne pourrait <mask> un vampire.,tuer,::>14:6546>29:7943
+192,La personne pourrait tuer un <mask>.,vampire,::>14:6546>29:7943
+193,Un <mask> va baiser sa femme.,voisin,::>66:28291>24:14472092
+194,Un voisin va <mask> sa femme.,baiser,::>66:28291>24:14472092
+195,Un voisin va baiser sa <mask>.,femme,::>66:28291>24:14472092
+196,Une <mask> pouvait cuire un magret de canard dans un four.,personne,::>66:17041753>15:9190
+197,Une personne pouvait <mask> un magret de canard dans un four.,cuire,::>66:17041753>15:9190
+198,Une personne pouvait cuire un <mask> de canard dans un four.,magret,::>66:17041753>15:9190
+199,Une personne pouvait cuire un magret de <mask> dans un four.,canard,::>66:17041753>15:9190
+200,Une personne pouvait cuire un magret de canard dans un <mask>.,four,::>66:17041753>15:9190
+201,Une <mask> pourrait baisser la tête.,personne,::>66:225916>24:390956
+202,Une personne pourrait <mask> la tête.,baisser,::>66:225916>24:390956
+203,Une personne pourrait baisser la <mask>.,tête,::>66:225916>24:390956
+204,La <mask> pourrait écrire sur le mur.,personne,::>31:144936>29:91801
+205,La personne pourrait <mask> sur le mur.,écrire,::>31:144936>29:91801
+206,La personne pourrait écrire <mask> le mur.,sur,::>31:144936>29:91801
+207,La personne pourrait écrire sur le <mask>.,mur,::>31:144936>29:91801
+208,La <mask> à voile va utiliser le vent pour se déplacer.,marine,::>66:156325>24:16096026
+209,La marine à <mask> va utiliser le vent pour se déplacer.,voile,::>66:156325>24:16096026
+210,La marine à voile va <mask> le vent pour se déplacer.,utiliser,::>66:156325>24:16096026
+211,La marine à voile va utiliser le <mask> pour se déplacer.,vent,::>66:156325>24:16096026
+212,La marine à voile va utiliser le vent pour se <mask>.,déplacer,::>66:156325>24:16096026
+213,Un <mask> pourrait faire éclater le tuyau.,gel,::>66:41415>24:14474595
+214,Un gel pourrait <mask> éclater le tuyau.,faire,::>66:41415>24:14474595
+215,Un gel pourrait faire <mask> le tuyau.,éclater,::>66:41415>24:14474595
+216,Un gel pourrait faire éclater le <mask>.,tuyau,::>66:41415>24:14474595
+217,Le <mask> pourrait commettre un crime terroriste.,terroriste,::>66:80892>24:16519889
+218,Le terroriste pourrait <mask> un crime terroriste.,commettre,::>66:80892>24:16519889
+219,Le terroriste pourrait commettre un <mask> terroriste.,crime,::>66:80892>24:16519889
+220,Le terroriste pourrait commettre un crime <mask>.,terroriste,::>66:80892>24:16519889
+221,Une <mask> est un lieu où il est possible de voler quelque chose.,maison,::>66:45179>30:73827
+222,Une maison est un <mask> où il est possible de voler quelque chose.,lieu,::>66:45179>30:73827
+223,Une maison est un lieu où il est <mask> de voler quelque chose.,possible,::>66:45179>30:73827
+224,Une maison est un lieu où il est possible de <mask> quelque chose.,voler,::>66:45179>30:73827
+225,Une maison est un lieu où il est possible de voler <mask> chose.,quelque,::>66:45179>30:73827
+226,Une maison est un lieu où il est possible de voler quelque <mask>.,chose,::>66:45179>30:73827
+227,La <mask> peut partir en vacances.,famille,::>66:98300>24:157590
+228,La famille peut <mask> en vacances.,partir,::>66:98300>24:157590
+229,La famille peut partir en <mask>.,vacances,::>66:98300>24:157590
+230,Le <mask> pouvait voler un sac.,voyou,::>13:12479>29:8794597
+231,Le voyou pouvait <mask> un sac.,voler,::>13:12479>29:8794597
+232,Le voyou pouvait voler un <mask>.,sac,::>13:12479>29:8794597
+233,Il est <mask> de regonfler le pneu.,possible,::>14:43548>29:133579
+234,Il est possible de <mask> le pneu.,regonfler,::>14:43548>29:133579
+235,Il est possible de regonfler le <mask>.,pneu,::>14:43548>29:133579
+236,Une <mask> peut offrir un cadeau.,personne,::>66:116477>24:227078
+237,Une personne peut <mask> un cadeau.,offrir,::>66:116477>24:227078
+238,Une personne peut offrir un <mask>.,cadeau,::>66:116477>24:227078
+239,Le <mask> pourrait arroser avec l'arrosoir.,jardinier,::>66:225259>24:16594281
+240,Le jardinier pourrait <mask> avec l'arrosoir.,arroser,::>66:225259>24:16594281
+241,Le jardinier pourrait arroser avec l'<mask>.,arrosoir,::>66:225259>24:16594281
+242,La <mask> pouvait se casser dans l'escalier.,personne,::>31:81320>29:58034
+243,La personne pouvait se <mask> dans l'escalier.,casser,::>31:81320>29:58034
+244,La personne pouvait se casser dans l'<mask>.,escalier,::>31:81320>29:58034
+245,L'<mask> pourrait avoir besoin de repos.,ouvrier,::>13:69797>29:14529958
+246,L'ouvrier pourrait <mask> besoin de repos.,avoir,::>13:69797>29:14529958
+247,L'ouvrier pourrait avoir <mask> de repos.,besoin,::>13:69797>29:14529958
+248,L'ouvrier pourrait avoir besoin de <mask>.,repos,::>13:69797>29:14529958
+249,Une <mask> pourrait plaquer.,femme,::>13:61490>29:4914
+250,Une femme pourrait <mask>.,plaquer,::>13:61490>29:4914
+251,Un <mask> peut se faire faire cuire.,crêpe,::>66:17186>26:30536
+252,Un crêpe peut se <mask> faire cuire.,faire,::>66:17186>26:30536
+253,Un crêpe peut se faire <mask> cuire.,faire,::>66:17186>26:30536
+254,Un crêpe peut se faire faire <mask>.,cuire,::>66:17186>26:30536
+255,Des <mask> secrets pouvaient espionner.,services,::>13:165446>29:125964
+256,Des services <mask> pouvaient espionner.,secrets,::>13:165446>29:125964
+257,Des services secrets pouvaient <mask>.,espionner,::>13:165446>29:125964
+258,Des <mask> pouvaient être vendus.,fromages,::>66:21694>26:54438
+259,Des fromages pouvaient <mask> vendus.,être,::>66:21694>26:54438
+260,Des fromages pouvaient être <mask>.,vendus,::>66:21694>26:54438
+261,Une <mask> pouvait se promener dans le pré.,oie,::>66:79073>24:16597188
+262,Une oie pouvait se <mask> dans le pré.,promener,::>66:79073>24:16597188
+263,Une oie pouvait se promener dans le <mask>.,pré,::>66:79073>24:16597188
+264,La <mask> va passer la nuit dans l'hôtel.,personne,::>66:14908340>15:102000
+265,La personne va <mask> la nuit dans l'hôtel.,passer,::>66:14908340>15:102000
+266,La personne va passer la <mask> dans l'hôtel.,nuit,::>66:14908340>15:102000
+267,La personne va passer la nuit dans l'<mask>.,hôtel,::>66:14908340>15:102000
+268,Un <mask> pouvait réviser.,jeune,::>66:28466>24:134753
+269,Un jeune pouvait <mask>.,réviser,::>66:28466>24:134753
+270,L'<mask> peut se faire du fric.,escroc,::>13:122455>29:14585899
+271,L'escroc peut se <mask> du fric.,faire,::>13:122455>29:14585899
+272,L'escroc peut se faire du <mask>.,fric,::>13:122455>29:14585899
+273,Le <mask> est un endroit où il est possible de servir.,bar,::>66:19654>30:7888
+274,Le bar est un <mask> où il est possible de servir.,endroit,::>66:19654>30:7888
+275,Le bar est un endroit où il est <mask> de servir.,possible,::>66:19654>30:7888
+276,Le bar est un endroit où il est possible de <mask>.,servir,::>66:19654>30:7888
+277,Un <mask> de musique va enregistrer la chanson.,groupe,::>66:159986>24:16378214
+278,Un groupe de <mask> va enregistrer la chanson.,musique,::>66:159986>24:16378214
+279,Un groupe de musique va <mask> la chanson.,enregistrer,::>66:159986>24:16378214
+280,Un groupe de musique va enregistrer la <mask>.,chanson,::>66:159986>24:16378214
+281,On pourrait <mask> la cuillère.,laver,::>66:51905>26:143876
+282,On pourrait laver la <mask>.,cuillère,::>66:51905>26:143876
+283,L'<mask> pouvait explorer un région.,explorateur,::>14:132350>29:139448
+284,L'explorateur pouvait <mask> un région.,explorer,::>14:132350>29:139448
+285,L'explorateur pouvait explorer un <mask>.,région,::>14:132350>29:139448
+286,Un <mask> est un lieu où il est possible de faire cuire.,autocuiseur,::>66:43966>30:30536
+287,Un autocuiseur est un <mask> où il est possible de faire cuire.,lieu,::>66:43966>30:30536
+288,Un autocuiseur est un lieu où il est <mask> de faire cuire.,possible,::>66:43966>30:30536
+289,Un autocuiseur est un lieu où il est possible de <mask> cuire.,faire,::>66:43966>30:30536
+290,Un autocuiseur est un lieu où il est possible de faire <mask>.,cuire,::>66:43966>30:30536
+291,Une <mask> nucléaire pourrait produire.,centrale,::>66:101085>24:42963
+292,Une centrale <mask> pourrait produire.,nucléaire,::>66:101085>24:42963
+293,Une centrale nucléaire pourrait <mask>.,produire,::>66:101085>24:42963
+294,Le <mask> de guerre pouvait prendre.,reporter,::>66:376142>24:86306
+295,Le reporter de <mask> pouvait prendre.,guerre,::>66:376142>24:86306
+296,Le reporter de guerre pouvait <mask>.,prendre,::>66:376142>24:86306
+297,<mask> un pourrait ouïr avec le sonotone.,quelqu',::>16:63420>29:115473
+298,Quelqu'un pourrait <mask> avec le sonotone.,ouïr,::>16:63420>29:115473
+299,Quelqu'un pourrait ouïr avec le <mask>.,sonotone,::>16:63420>29:115473
+300,Le <mask> peut manger avec des baguettes.,chinois,::>66:59402>24:4470305
+301,Le chinois peut <mask> avec des baguettes.,manger,::>66:59402>24:4470305
+302,Le chinois peut manger avec des <mask>.,baguettes,::>66:59402>24:4470305
+303,Le <mask> va payer la facture.,client,::>13:20082>29:326506
+304,Le client va <mask> la facture.,payer,::>13:20082>29:326506
+305,Le client va payer la <mask>.,facture,::>13:20082>29:326506
+306,Le <mask> pourrait recharger un révolver.,soldat,::>66:102633>24:14363997
+307,Le soldat pourrait <mask> un révolver.,recharger,::>66:102633>24:14363997
+308,Le soldat pourrait recharger un <mask>.,révolver,::>66:102633>24:14363997
+309,La <mask> salope va aimer se faire ramoner le fion.,bonne,::>13:1873774>29:17109684
+310,La bonne <mask> va aimer se faire ramoner le fion.,salope,::>13:1873774>29:17109684
+311,La bonne salope va <mask> se faire ramoner le fion.,aimer,::>13:1873774>29:17109684
+312,La bonne salope va aimer se <mask> ramoner le fion.,faire,::>13:1873774>29:17109684
+313,La bonne salope va aimer se faire <mask> le fion.,ramoner,::>13:1873774>29:17109684
+314,La bonne salope va aimer se faire ramoner le <mask>.,fion,::>13:1873774>29:17109684
+315,Un <mask> peut jongler avec des balles larges.,individu,::>66:68439>24:14412362
+316,Un individu peut <mask> avec des balles larges.,jongler,::>66:68439>24:14412362
+317,Un individu peut jongler avec des <mask> larges.,balles,::>66:68439>24:14412362
+318,Un individu peut jongler avec des balles <mask>.,larges,::>66:68439>24:14412362
+319,Une <mask> pourrait fouiller.,police,::>66:141440>24:41715
+320,Une police pourrait <mask>.,fouiller,::>66:141440>24:41715
+321,Un <mask> peut être dans le désert.,cactus,::>14:144366>29:80350
+322,Un cactus peut <mask> dans le désert.,être,::>14:144366>29:80350
+323,Un cactus peut être dans le <mask>.,désert,::>14:144366>29:80350
+324,Une <mask> va aspirer avec son aspirateur.,personne,::>66:225916>24:16601976
+325,Une personne va <mask> avec son aspirateur.,aspirer,::>66:225916>24:16601976
+326,Une personne va aspirer avec son <mask>.,aspirateur,::>66:225916>24:16601976
+327,Un <mask> pouvait livrer quelque chose quelque chose.,livreur,::>66:96735>24:16560823
+328,Un livreur pouvait <mask> quelque chose quelque chose.,livrer,::>66:96735>24:16560823
+329,Un livreur pouvait livrer <mask> chose quelque chose.,quelque,::>66:96735>24:16560823
+330,Un livreur pouvait livrer quelque <mask> quelque chose.,chose,::>66:96735>24:16560823
+331,Un livreur pouvait livrer quelque chose <mask> chose.,quelque,::>66:96735>24:16560823
+332,Un livreur pouvait livrer quelque chose quelque <mask>.,chose,::>66:96735>24:16560823
+333,Une <mask> pourrait endommager.,souris,::>66:213377>24:77812
+334,Une souris pourrait <mask>.,endommager,::>66:213377>24:77812
+335,Une <mask> peut écrire la correction avec de la craie.,maîtresse,::>16:57914>29:16799160
+336,Une maîtresse peut <mask> la correction avec de la craie.,écrire,::>16:57914>29:16799160
+337,Une maîtresse peut écrire la <mask> avec de la craie.,correction,::>16:57914>29:16799160
+338,Une maîtresse peut écrire la correction avec de la <mask>.,craie,::>16:57914>29:16799160
+339,Un <mask> pourrait prolonger un état d'urgence.,gouvernement,::>66:72215>24:16559407
+340,Un gouvernement pourrait <mask> un état d'urgence.,prolonger,::>66:72215>24:16559407
+341,Un gouvernement pourrait prolonger un <mask> d'urgence.,état,::>66:72215>24:16559407
+342,Un gouvernement pourrait prolonger un état d'<mask>.,urgence,::>66:72215>24:16559407
+343,Une sorte de <mask> d'artillerie pourrait faire des victimes.,pilonnage,::>13:12080643>29:8785737
+344,Une sorte de pilonnage d'<mask> pourrait faire des victimes.,artillerie,::>13:12080643>29:8785737
+345,Une sorte de pilonnage d'artillerie pourrait <mask> des victimes.,faire,::>13:12080643>29:8785737
+346,Une sorte de pilonnage d'artillerie pourrait faire des <mask>.,victimes,::>13:12080643>29:8785737
+347,Le <mask> pouvait abattre un officier avec un fusil à lunette.,soldat,::>66:102633>24:16492383
+348,Le soldat pouvait <mask> un officier avec un fusil à lunette.,abattre,::>66:102633>24:16492383
+349,Le soldat pouvait abattre un <mask> avec un fusil à lunette.,officier,::>66:102633>24:16492383
+350,Le soldat pouvait abattre un officier avec un <mask> à lunette.,fusil,::>66:102633>24:16492383
+351,Le soldat pouvait abattre un officier avec un fusil à <mask>.,lunette,::>66:102633>24:16492383
+352,Un <mask> peut fouiller un sac à main.,voleur,::>14:48825>29:41715
+353,Un voleur peut <mask> un sac à main.,fouiller,::>14:48825>29:41715
+354,Un voleur peut fouiller un <mask> à main.,sac,::>14:48825>29:41715
+355,Un voleur peut fouiller un sac à <mask>.,main,::>14:48825>29:41715
+356,Un <mask> paramilitaire pourrait massacrer quelqu'un.,groupe,::>13:245740>29:52361
+357,Un groupe <mask> pourrait massacrer quelqu'un.,paramilitaire,::>13:245740>29:52361
+358,Un groupe paramilitaire pourrait <mask> quelqu'un.,massacrer,::>13:245740>29:52361
+359,Un groupe paramilitaire pourrait massacrer <mask> un.,quelqu',::>13:245740>29:52361
+360,On va se <mask> avec une arme.,battre,::>66:145948>25:91932
+361,On va se battre avec une <mask>.,arme,::>66:145948>25:91932
+362,Un <mask> peut porter le sac.,soldat,::>14:40635>29:43404
+363,Un soldat peut <mask> le sac.,porter,::>14:40635>29:43404
+364,Un soldat peut porter le <mask>.,sac,::>14:40635>29:43404
+365,La <mask> femme peut refuser les avances.,jeune,::>14:130659>29:43881
+366,La jeune <mask> peut refuser les avances.,femme,::>14:130659>29:43881
+367,La jeune femme peut <mask> les avances.,refuser,::>14:130659>29:43881
+368,La jeune femme peut refuser les <mask>.,avances,::>14:130659>29:43881
+369,Le <mask> pourrait vendre les fromages.,fromager,::>14:21694>29:54438
+370,Le fromager pourrait <mask> les fromages.,vendre,::>14:21694>29:54438
+371,Le fromager pourrait vendre les <mask>.,fromages,::>14:21694>29:54438
+372,La <mask> pourrait blesser une personne avec un couteau.,personne,::>16:32610>29:328330
+373,La personne pourrait <mask> une personne avec un couteau.,blesser,::>16:32610>29:328330
+374,La personne pourrait blesser une <mask> avec un couteau.,personne,::>16:32610>29:328330
+375,La personne pourrait blesser une personne avec un <mask>.,couteau,::>16:32610>29:328330
+376,Le <mask> de soldats va prendre.,groupe,::>13:11031038>29:86306
+377,Le groupe de <mask> va prendre.,soldats,::>13:11031038>29:86306
+378,Le groupe de soldats va <mask>.,prendre,::>13:11031038>29:86306
+379,La <mask> personne peut avoir peur de la mort.,vieille,::>14:122864>29:15199086
+380,La vieille <mask> peut avoir peur de la mort.,personne,::>14:122864>29:15199086
+381,La vieille personne peut <mask> peur de la mort.,avoir,::>14:122864>29:15199086
+382,La vieille personne peut avoir <mask> de la mort.,peur,::>14:122864>29:15199086
+383,La vieille personne peut avoir peur de la <mask>.,mort,::>14:122864>29:15199086
+384,Les <mask> pourraient être développés.,films,::>66:42177>26:84874
+385,Les films pourraient <mask> développés.,être,::>66:42177>26:84874
+386,Les films pourraient être <mask>.,développés,::>66:42177>26:84874
+387,La <mask> pourrait couper du pain dans une planche à pain.,personne,::>66:14851596>15:42092
+388,La personne pourrait <mask> du pain dans une planche à pain.,couper,::>66:14851596>15:42092
+389,La personne pourrait couper du <mask> dans une planche à pain.,pain,::>66:14851596>15:42092
+390,La personne pourrait couper du pain dans une <mask> à pain.,planche,::>66:14851596>15:42092
+391,La personne pourrait couper du pain dans une planche à <mask>.,pain,::>66:14851596>15:42092
+392,Un <mask> pouvait commettre un crime.,individu,::>66:68439>24:156187
+393,Un individu pouvait <mask> un crime.,commettre,::>66:68439>24:156187
+394,Un individu pouvait commettre un <mask>.,crime,::>66:68439>24:156187
+395,Un <mask> va écrire une rédaction.,lycéen,::>14:112777>29:91801
+396,Un lycéen va <mask> une rédaction.,écrire,::>14:112777>29:91801
+397,Un lycéen va écrire une <mask>.,rédaction,::>14:112777>29:91801
+398,Le <mask> enfant peut s'endormir.,petit,::>13:155036>29:138507
+399,Le petit <mask> peut s'endormir.,enfant,::>13:155036>29:138507
+400,Le petit enfant peut s'<mask>.,endormir,::>13:155036>29:138507
+401,La <mask> va payer des factures.,personne,::>66:116477>24:16342855
+402,La personne va <mask> des factures.,payer,::>66:116477>24:16342855
+403,La personne va payer des <mask>.,factures,::>66:116477>24:16342855
+404,Une sorte d'<mask> informatique pourrait écrire un programme.,ingénieur,::>66:15421034>24:15166052
+405,Une sorte d'ingénieur <mask> pourrait écrire un programme.,informatique,::>66:15421034>24:15166052
+406,Une sorte d'ingénieur informatique pourrait <mask> un programme.,écrire,::>66:15421034>24:15166052
+407,Une sorte d'ingénieur informatique pourrait écrire un <mask>.,programme,::>66:15421034>24:15166052
+408,L'<mask> peut écouter dans une chambre.,ado,::>31:90075>29:121505
+409,L'ado peut <mask> dans une chambre.,écouter,::>31:90075>29:121505
+410,L'ado peut écouter dans une <mask>.,chambre,::>31:90075>29:121505
+411,L'<mask> peut tromper sa femme.,homme,::>13:74860>29:316050
+412,L'homme peut <mask> sa femme.,tromper,::>13:74860>29:316050
+413,L'homme peut tromper sa <mask>.,femme,::>13:74860>29:316050
+414,Le <mask> pourrait ouvrir.,voleur,::>66:102641>24:54271
+415,Le voleur pourrait <mask>.,ouvrir,::>66:102641>24:54271
+416,Une <mask> peut passer l'aspirateur.,personne,::>66:116477>24:14474407
+417,Une personne peut <mask> l'aspirateur.,passer,::>66:116477>24:14474407
+418,Une personne peut passer l'<mask>.,aspirateur,::>66:116477>24:14474407
+419,Un <mask> peut frapper une personne avec des poings.,individu,::>16:158641>29:15189655
+420,Un individu peut <mask> une personne avec des poings.,frapper,::>16:158641>29:15189655
+421,Un individu peut frapper une <mask> avec des poings.,personne,::>16:158641>29:15189655
+422,Un individu peut frapper une personne avec des <mask>.,poings,::>16:158641>29:15189655
+423,Un <mask> pourrait pousser quelqu'un.,psychopathe,::>66:22602>24:78635
+424,Un psychopathe pourrait <mask> quelqu'un.,pousser,::>66:22602>24:78635
+425,Un psychopathe pourrait pousser <mask> un.,quelqu',::>66:22602>24:78635
+426,La <mask> pourrait préparer un plat.,cuisinière,::>66:59151>24:14325008
+427,La cuisinière pourrait <mask> un plat.,préparer,::>66:59151>24:14325008
+428,La cuisinière pourrait préparer un <mask>.,plat,::>66:59151>24:14325008
+429,Les <mask> pourraient être larguées.,bombes,::>66:400280>26:134205
+430,Les bombes pourraient <mask> larguées.,être,::>66:400280>26:134205
+431,Les bombes pourraient être <mask>.,larguées,::>66:400280>26:134205
+432,Une <mask> pourrait prier dans l'église.,personne,::>66:116477>24:14540332
+433,Une personne pourrait <mask> dans l'église.,prier,::>66:116477>24:14540332
+434,Une personne pourrait prier dans l'<mask>.,église,::>66:116477>24:14540332
+435,Un <mask> jaloux va envier avec jalousie.,mari,::>66:232979>24:328033
+436,Un mari <mask> va envier avec jalousie.,jaloux,::>66:232979>24:328033
+437,Un mari jaloux va <mask> avec jalousie.,envier,::>66:232979>24:328033
+438,Un mari jaloux va envier avec <mask>.,jalousie,::>66:232979>24:328033
+439,La <mask> va manger son pavé.,personne,::>66:225916>24:14483215
+440,La personne va <mask> son pavé.,manger,::>66:225916>24:14483215
+441,La personne va manger son <mask>.,pavé,::>66:225916>24:14483215
+442,Une <mask> pute pourrait se faire défoncer l'anus.,petite,::>66:260502>24:8157226
+443,Une petite <mask> pourrait se faire défoncer l'anus.,pute,::>66:260502>24:8157226
+444,Une petite pute pourrait se <mask> défoncer l'anus.,faire,::>66:260502>24:8157226
+445,Une petite pute pourrait se faire <mask> l'anus.,défoncer,::>66:260502>24:8157226
+446,Une petite pute pourrait se faire défoncer l'<mask>.,anus,::>66:260502>24:8157226
+447,La <mask> va aller voir.,personne,::>66:116477>24:49607
+448,La personne va <mask> voir.,aller,::>66:116477>24:49607
+449,La personne va aller <mask>.,voir,::>66:116477>24:49607
+450,La <mask> pourrait mourir de faim.,personne,::>66:116477>24:221386
+451,La personne pourrait <mask> de faim.,mourir,::>66:116477>24:221386
+452,La personne pourrait mourir de <mask>.,faim,::>66:116477>24:221386
+453,Une <mask> pourrait tracter.,locomotive,::>66:97701>24:117773
+454,Une locomotive pourrait <mask>.,tracter,::>66:97701>24:117773
+455,Un <mask> pouvait écrire un mot dans la feuille de papier.,individu,::>31:155546>29:328251
+456,Un individu pouvait <mask> un mot dans la feuille de papier.,écrire,::>31:155546>29:328251
+457,Un individu pouvait écrire un <mask> dans la feuille de papier.,mot,::>31:155546>29:328251
+458,Un individu pouvait écrire un mot dans la <mask> de papier.,feuille,::>31:155546>29:328251
+459,Un individu pouvait écrire un mot dans la feuille de <mask>.,papier,::>31:155546>29:328251
+460,Un <mask> pourrait défendre son bifteck.,individu,::>66:68439>24:221207
+461,Un individu pourrait <mask> son bifteck.,défendre,::>66:68439>24:221207
+462,Un individu pourrait défendre son <mask>.,bifteck,::>66:68439>24:221207
+463,La <mask> pourrait dévoiler dans un journal.,personne,::>66:116477>24:16778434
+464,La personne pourrait <mask> dans un journal.,dévoiler,::>66:116477>24:16778434
+465,La personne pourrait dévoiler dans un <mask>.,journal,::>66:116477>24:16778434
+466,La <mask> peut coudre le sac à main.,femme,::>66:61490>24:17476705
+467,La femme peut <mask> le sac à main.,coudre,::>66:61490>24:17476705
+468,La femme peut coudre le <mask> à main.,sac,::>66:61490>24:17476705
+469,La femme peut coudre le sac à <mask>.,main,::>66:61490>24:17476705
+470,Le <mask> pourrait tailler.,scout,::>66:96281>24:49598
+471,Le scout pourrait <mask>.,tailler,::>66:96281>24:49598
+472,Des <mask> pourrait attaquer un gaulois.,romains,::>14:33997>29:14338
+473,Des romains pourrait <mask> un gaulois.,attaquer,::>14:33997>29:14338
+474,Des romains pourrait attaquer un <mask>.,gaulois,::>14:33997>29:14338
+475,Un <mask> pouvait commettre une infraction.,racaille,::>13:76617>29:14638048
+476,Un racaille pouvait <mask> une infraction.,commettre,::>13:76617>29:14638048
+477,Un racaille pouvait commettre une <mask>.,infraction,::>13:76617>29:14638048
+478,Les <mask> pourraient travailler.,infirmières,::>13:417968>29:265611
+479,Les infirmières pourraient <mask>.,travailler,::>13:417968>29:265611
+480,L'<mask> de particules pourrait accélérer une particule.,accélérateur,::>14:15127>29:74365
+481,L'accélérateur de <mask> pourrait accélérer une particule.,particules,::>14:15127>29:74365
+482,L'accélérateur de particules pourrait <mask> une particule.,accélérer,::>14:15127>29:74365
+483,L'accélérateur de particules pourrait accélérer une <mask>.,particule,::>14:15127>29:74365
+484,La <mask> va corriger.,personne,::>13:116477>29:28475
+485,La personne va <mask>.,corriger,::>13:116477>29:28475
+486,Un <mask> est un lieu où il est possible de se prélasser.,canapé,::>66:35676>30:35427
+487,Un canapé est un <mask> où il est possible de se prélasser.,lieu,::>66:35676>30:35427
+488,Un canapé est un lieu où il est <mask> de se prélasser.,possible,::>66:35676>30:35427
+489,Un canapé est un lieu où il est possible de se <mask>.,prélasser,::>66:35676>30:35427
+490,Une <mask> pouvait mettre du rouge à lèvres.,femme,::>13:61490>29:11070360
+491,Une femme pouvait <mask> du rouge à lèvres.,mettre,::>13:61490>29:11070360
+492,Une femme pouvait mettre du <mask> à lèvres.,rouge,::>13:61490>29:11070360
+493,Une femme pouvait mettre du rouge à <mask>.,lèvres,::>13:61490>29:11070360
+494,<mask> un pouvait couper dans la planche à pain.,quelqu',::>31:42092>29:128828
+495,Quelqu'un pouvait <mask> dans la planche à pain.,couper,::>31:42092>29:128828
+496,Quelqu'un pouvait couper dans la <mask> à pain.,planche,::>31:42092>29:128828
+497,Quelqu'un pouvait couper dans la planche à <mask>.,pain,::>31:42092>29:128828
+498,Le <mask> pourrait s'enfuir.,fugitif,::>13:80279>29:137117
+499,Le fugitif pourrait s'<mask>.,enfuir,::>13:80279>29:137117
+500,La <mask> ne va pas voir.,personne,::>66:116477>24:256828
+501,La personne ne va <mask> voir.,pas,::>66:116477>24:256828
+502,La personne ne va pas <mask>.,voir,::>66:116477>24:256828
+503,Une <mask> pourrait faire baisser.,vaccination,::>66:23117>24:264275
+504,Une vaccination pourrait <mask> baisser.,faire,::>66:23117>24:264275
+505,Une vaccination pourrait faire <mask>.,baisser,::>66:23117>24:264275
+506,La <mask> pourrait essuyer un verre.,personne,::>13:116477>29:10040878
+507,La personne pourrait <mask> un verre.,essuyer,::>13:116477>29:10040878
+508,La personne pourrait essuyer un <mask>.,verre,::>13:116477>29:10040878
+509,Un <mask> pouvait faire la queue.,Russe,::>66:151499>24:104649
+510,Un russe pouvait <mask> la queue.,faire,::>66:151499>24:104649
+511,Un russe pouvait faire la <mask>.,queue,::>66:151499>24:104649
+512,Un <mask> pouvait mettre ses doigts dans une prise électrique.,bébé,::>31:167160>29:10990052
+513,Un bébé pouvait <mask> ses doigts dans une prise électrique.,mettre,::>31:167160>29:10990052
+514,Un bébé pouvait mettre ses <mask> dans une prise électrique.,doigts,::>31:167160>29:10990052
+515,Un bébé pouvait mettre ses doigts dans une <mask> électrique.,prise,::>31:167160>29:10990052
+516,Un bébé pouvait mettre ses doigts dans une prise <mask>.,électrique,::>31:167160>29:10990052
+517,Une <mask> riche peut porter un vêtement de marque.,personne,::>66:8749242>24:16911474
+518,Une personne <mask> peut porter un vêtement de marque.,riche,::>66:8749242>24:16911474
+519,Une personne riche peut <mask> un vêtement de marque.,porter,::>66:8749242>24:16911474
+520,Une personne riche peut porter un <mask> de marque.,vêtement,::>66:8749242>24:16911474
+521,Une personne riche peut porter un vêtement de <mask>.,marque,::>66:8749242>24:16911474
+522,Un <mask> peut refaire.,homme,::>13:74860>29:69093
+523,Un homme peut <mask>.,refaire,::>13:74860>29:69093
+524,Une <mask> au foyer pourrait préparer un dîner.,mère,::>14:13925>29:36246
+525,Une mère au <mask> pourrait préparer un dîner.,foyer,::>14:13925>29:36246
+526,Une mère au foyer pourrait <mask> un dîner.,préparer,::>14:13925>29:36246
+527,Une mère au foyer pourrait préparer un <mask>.,dîner,::>14:13925>29:36246
+528,Un <mask> va cuire dans le four.,individu,::>66:68439>24:14326649
+529,Un individu va <mask> dans le four.,cuire,::>66:68439>24:14326649
+530,Un individu va cuire dans le <mask>.,four,::>66:68439>24:14326649
+531,Du <mask> va être servi.,fromage,::>66:141687>26:7888
+532,Du fromage va <mask> servi.,être,::>66:141687>26:7888
+533,Du fromage va être <mask>.,servi,::>66:141687>26:7888
+534,Des <mask> pourraient être emportés.,meubles,::>66:105302>26:16810
+535,Des meubles pourraient <mask> emportés.,être,::>66:105302>26:16810
+536,Des meubles pourraient être <mask>.,emportés,::>66:105302>26:16810
+537,Une sorte d'<mask> peut dessiner avec des crayons de papier.,enfant,::>66:233149>24:17470894
+538,Une sorte d'enfant peut <mask> avec des crayons de papier.,dessiner,::>66:233149>24:17470894
+539,Une sorte d'enfant peut dessiner avec des <mask> de papier.,crayons,::>66:233149>24:17470894
+540,Une sorte d'enfant peut dessiner avec des crayons de <mask>.,papier,::>66:233149>24:17470894
+541,Le <mask> ramier peut voler.,pigeon,::>13:194257>29:73827
+542,Le pigeon <mask> peut voler.,ramier,::>13:194257>29:73827
+543,Le pigeon ramier peut <mask>.,voler,::>13:194257>29:73827
+544,Un <mask> peut réveiller.,réveil,::>13:141176>29:104795
+545,Un réveil peut <mask>.,réveiller,::>13:141176>29:104795
+546,Une <mask> est un endroit où on peut se confesser.,église,::>66:30387>30:59632
+547,Une église est un <mask> où on peut se confesser.,endroit,::>66:30387>30:59632
+548,Une église est un endroit où on peut se <mask>.,confesser,::>66:30387>30:59632
+549,La <mask> pourrait déféquer dans les chiottes.,personne,::>31:94933>29:53455
+550,La personne pourrait <mask> dans les chiottes.,déféquer,::>31:94933>29:53455
+551,La personne pourrait déféquer dans les <mask>.,chiottes,::>31:94933>29:53455
+552,Un <mask> pourrait remédier.,ostéopathe,::>66:85509>24:206883
+553,Un ostéopathe pourrait <mask>.,remédier,::>66:85509>24:206883
+554,Un <mask> est un lieu où on pourrait percer.,mur,::>66:144936>30:26738
+555,Un mur est un <mask> où on pourrait percer.,lieu,::>66:144936>30:26738
+556,Un mur est un lieu où on pourrait <mask>.,percer,::>66:144936>30:26738
+557,L'<mask> de maison peut casser.,employé,::>66:31513>24:63509
+558,L'employé de <mask> peut casser.,maison,::>66:31513>24:63509
+559,L'employé de maison peut <mask>.,casser,::>66:31513>24:63509
+560,Le <mask> peut détruire un char de combat avec le missile anti-char.,soldat,::>66:102633>24:17433419
+561,Le soldat peut <mask> un char de combat avec le missile anti-char.,détruire,::>66:102633>24:17433419
+562,Le soldat peut détruire un <mask> de combat avec le missile anti-char.,char,::>66:102633>24:17433419
+563,Le soldat peut détruire un char de <mask> avec le missile anti-char.,combat,::>66:102633>24:17433419
+564,Le soldat peut détruire un char de combat avec le <mask> anti-char.,missile,::>66:102633>24:17433419
+565,Le soldat peut détruire un char de combat avec le missile <mask>.,anti-char,::>66:102633>24:17433419
+566,Un <mask> pouvait faire des acrobaties dans un cirque.,acrobate,::>31:83208>29:14040778
+567,Un acrobate pouvait <mask> des acrobaties dans un cirque.,faire,::>31:83208>29:14040778
+568,Un acrobate pouvait faire des <mask> dans un cirque.,acrobaties,::>31:83208>29:14040778
+569,Un acrobate pouvait faire des acrobaties dans un <mask>.,cirque,::>31:83208>29:14040778
+570,La <mask> pourrait posséder.,personne,::>13:116477>29:18834
+571,La personne pourrait <mask>.,posséder,::>13:116477>29:18834
+572,Le <mask> pouvait saluer son supérieur.,soldat,::>66:102633>24:14334774
+573,Le soldat pouvait <mask> son supérieur.,saluer,::>66:102633>24:14334774
+574,Le soldat pouvait saluer son <mask>.,supérieur,::>66:102633>24:14334774
+575,Un <mask> va servir.,restaurant,::>13:79954>29:82237
+576,Un restaurant va <mask>.,servir,::>13:79954>29:82237
+577,Un <mask> va rédiger un article scientifique.,chercheur,::>13:129303>29:12048876
+578,Un chercheur va <mask> un article scientifique.,rédiger,::>13:129303>29:12048876
+579,Un chercheur va rédiger un <mask> scientifique.,article,::>13:129303>29:12048876
+580,Un chercheur va rédiger un article <mask>.,scientifique,::>13:129303>29:12048876
+581,La <mask> peut être sculptée.,figurine,::>66:39533>26:45472
+582,La figurine peut <mask> sculptée.,être,::>66:39533>26:45472
+583,La figurine peut être <mask>.,sculptée,::>66:39533>26:45472
+584,Une sorte de <mask> pourrait arroser avec le tuyau d'arrosage.,jardinier,::>66:9259123>24:14486206
+585,Une sorte de jardinier pourrait <mask> avec le tuyau d'arrosage.,arroser,::>66:9259123>24:14486206
+586,Une sorte de jardinier pourrait arroser avec le <mask> d'arrosage.,tuyau,::>66:9259123>24:14486206
+587,Une sorte de jardinier pourrait arroser avec le tuyau d'<mask>.,arrosage,::>66:9259123>24:14486206
+588,On pouvait <mask> à l'aide de le dénoyauteur.,dénoyauter,::>66:114150>25:30146
+589,On pouvait dénoyauter à l'<mask> de le dénoyauteur.,aide,::>66:114150>25:30146
+590,On pouvait dénoyauter à l'aide de le <mask>.,dénoyauteur,::>66:114150>25:30146
+591,Une <mask> peut rechercher.,personne,::>13:116477>29:130196
+592,Une personne peut <mask>.,rechercher,::>13:116477>29:130196
+593,La <mask> pourrait servir avec le louche.,personne,::>66:116477>24:14561288
+594,La personne pourrait <mask> avec le louche.,servir,::>66:116477>24:14561288
+595,La personne pourrait servir avec le <mask>.,louche,::>66:116477>24:14561288
+596,La <mask> de ménage pouvait travailler dans le navire de croisière.,femme,::>31:159982>29:69550
+597,La femme de <mask> pouvait travailler dans le navire de croisière.,ménage,::>31:159982>29:69550
+598,La femme de ménage pouvait <mask> dans le navire de croisière.,travailler,::>31:159982>29:69550
+599,La femme de ménage pouvait travailler dans le <mask> de croisière.,navire,::>31:159982>29:69550
+600,La femme de ménage pouvait travailler dans le navire de <mask>.,croisière,::>31:159982>29:69550
+601,Les <mask> vont attaquer quelqu'un.,loups,::>66:229551>24:14338
+602,Les loups vont <mask> quelqu'un.,attaquer,::>66:229551>24:14338
+603,Les loups vont attaquer <mask> un.,quelqu',::>66:229551>24:14338
+604,Le <mask> va garder un enfant.,baby-sitter,::>66:43386>24:328380
+605,Le baby-sitter va <mask> un enfant.,garder,::>66:43386>24:328380
+606,Le baby-sitter va garder un <mask>.,enfant,::>66:43386>24:328380
+607,Les <mask> vont être diffusées.,informations,::>66:19122>26:94318
+608,Les informations vont <mask> diffusées.,être,::>66:19122>26:94318
+609,Les informations vont être <mask>.,diffusées,::>66:19122>26:94318
+610,La <mask> va extraire du sel dans la mine.,personne,::>66:16598484>15:140613
+611,La personne va <mask> du sel dans la mine.,extraire,::>66:16598484>15:140613
+612,La personne va extraire du <mask> dans la mine.,sel,::>66:16598484>15:140613
+613,La personne va extraire du sel dans la <mask>.,mine,::>66:16598484>15:140613
+614,La <mask> pourrait être peinte.,figurine,::>66:39533>26:30875
+615,La figurine pourrait <mask> peinte.,être,::>66:39533>26:30875
+616,La figurine pourrait être <mask>.,peinte,::>66:39533>26:30875
+617,Un <mask> va cuisiner quelqu'un.,chef,::>66:89926>24:80199
+618,Un chef va <mask> quelqu'un.,cuisiner,::>66:89926>24:80199
+619,Un chef va cuisiner <mask> un.,quelqu',::>66:89926>24:80199
+620,Une sorte de <mask> de komodo pourrait cracher du feu.,dragon,::>66:8383>24:14347205
+621,Une sorte de dragon de <mask> pourrait cracher du feu.,Komodo,::>66:8383>24:14347205
+622,Une sorte de dragon de komodo pourrait <mask> du feu.,cracher,::>66:8383>24:14347205
+623,Une sorte de dragon de komodo pourrait cracher du <mask>.,feu,::>66:8383>24:14347205
+624,La <mask> peut détruire.,personne,::>13:116477>29:131732
+625,La personne peut <mask>.,détruire,::>13:116477>29:131732
+626,Un <mask> peut se déshabiller.,individu,::>13:68439>29:81963
+627,Un individu peut se <mask>.,déshabiller,::>13:68439>29:81963
+628,La <mask> peut jouer de sa musique.,personne,::>14:70527>29:15523
+629,La personne peut <mask> de sa musique.,jouer,::>14:70527>29:15523
+630,La personne peut jouer de sa <mask>.,musique,::>14:70527>29:15523
+631,L'<mask> terroriste peut lancer quelque chose.,organisation,::>66:271768>24:44755
+632,L'organisation <mask> peut lancer quelque chose.,terroriste,::>66:271768>24:44755
+633,L'organisation terroriste peut <mask> quelque chose.,lancer,::>66:271768>24:44755
+634,L'organisation terroriste peut lancer <mask> chose.,quelque,::>66:271768>24:44755
+635,L'organisation terroriste peut lancer quelque <mask>.,chose,::>66:271768>24:44755
+636,Le <mask> pourrait être poncé.,meuble,::>66:213632>26:117892
+637,Le meuble pourrait <mask> poncé.,être,::>66:213632>26:117892
+638,Le meuble pourrait être <mask>.,poncé,::>66:213632>26:117892
+639,Le <mask> va fondre sur une proie.,faucon,::>13:111092>29:17433721
+640,Le faucon va <mask> sur une proie.,fondre,::>13:111092>29:17433721
+641,Le faucon va fondre <mask> une proie.,sur,::>13:111092>29:17433721
+642,Le faucon va fondre sur une <mask>.,proie,::>13:111092>29:17433721
+643,Un <mask> peut parler.,individu,::>13:68439>29:140318
+644,Un individu peut <mask>.,parler,::>13:68439>29:140318
+645,Une <mask> va lire un livre dans le bibliothèque.,personne,::>66:16587743>15:92636
+646,Une personne va <mask> un livre dans le bibliothèque.,lire,::>66:16587743>15:92636
+647,Une personne va lire un <mask> dans le bibliothèque.,livre,::>66:16587743>15:92636
+648,Une personne va lire un livre dans le <mask>.,bibliothèque,::>66:16587743>15:92636
+649,Le <mask> va baiser une sorte de sex friend.,mec,::>14:267596>29:5692
+650,Le mec va <mask> une sorte de sex friend.,baiser,::>14:267596>29:5692
+651,Le mec va baiser une sorte de <mask> friend.,sex,::>14:267596>29:5692
+652,Le mec va baiser une sorte de sex <mask>.,friend,::>14:267596>29:5692
+653,La <mask> peut puiser de l'eau.,personne,::>66:116477>24:16437241
+654,La personne peut <mask> de l'eau.,puiser,::>66:116477>24:16437241
+655,La personne peut puiser de l'<mask>.,eau,::>66:116477>24:16437241
+656,Une <mask> peut introduire une sonde.,personne,::>14:143112>29:111075
+657,Une personne peut <mask> une sonde.,introduire,::>14:143112>29:111075
+658,Une personne peut introduire une <mask>.,sonde,::>14:143112>29:111075
